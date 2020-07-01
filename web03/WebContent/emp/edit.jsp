@@ -23,16 +23,15 @@
 		<td colspan="6">
 		<!-- content start -->
 		<center>
-		<h1>EMP LIST PAGE</h1>
-		<table border="1" width="800" cellspacing="0">
-			<tr>
-				<th width="50" bgcolor="#aaaaaa">EMPNO</th>
-				<th bgcolor="#aaaaaa">ENAME</th>
-				<th bgcolor="#aaaaaa">DNAME</th>
-				<th bgcolor="#aaaaaa">LOC</th>
-			</tr>
+		<h1>EMP EDIT PAGE</h1>
+		<form action="update.jsp">
+		<table border="0" width="800">
 			<%
-			String sql="select empno,ename,dname,loc from emp inner join dept using (deptno)";
+			String empno=request.getParameter("empno");
+			String sql="select empno,ename,job,mgr,hiredate,sal,comm,";
+			sql+="(select dname from dept where dept.deptno=emp.deptno) ";
+			sql+="from emp where empno="+empno;
+			
 			String driver="oracle.jdbc.driver.OracleDriver";
 			String url="jdbc:oracle:thin:@localhost:1521:xe";
 			String user="scott";
@@ -47,16 +46,45 @@
 				conn=DriverManager.getConnection(url, user, password);
 				stmt=conn.createStatement();
 				rs=stmt.executeQuery(sql);
-				int cnt=0;
-				while(rs.next()){
-					String bg="";
-					if(cnt++%2==1){bg="bgcolor=\"#cccccc\"";}
+				if(rs.next()){
 			%>
 			<tr>
-				<td <%=bg %>><a href="detail.jsp?empno=<%=rs.getInt(1) %>"><%=rs.getInt(1) %></a></td>
-				<td <%=bg %>><%=rs.getString(2) %></td>
-				<td <%=bg %>><%=rs.getString(3) %></td>
-				<td <%=bg %>><%=rs.getString(4) %></td>
+				<td bgcolor="#aaaaaa" align="center">empno</td>
+				<td><input type="text" name="empno" value="<%=rs.getInt(1) %>" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td bgcolor="#aaaaaa" align="center">ename</td>
+				<td><input type="text" name="ename" value="<%=rs.getString(2) %>"></td>
+			</tr>
+			<tr>
+				<td bgcolor="#aaaaaa" align="center">job</td>
+				<td><input type="text" name="job" value="<%=rs.getString(3) %>"></td>
+			</tr>
+			<tr>
+				<td bgcolor="#aaaaaa" align="center">mgr</td>
+				<td><input type="text" name="mgr" value="<%=rs.getInt(4) %>"></td>
+			</tr>
+			<tr>
+				<td bgcolor="#aaaaaa" align="center">hiredate</td>
+				<td><%=rs.getDate(5) %></td>
+			</tr>
+			<tr>
+				<td bgcolor="#aaaaaa" align="center">sal</td>
+				<td><input type="text" name="sal" value="<%=rs.getInt(6) %>"></td>
+			</tr>
+			<tr>
+				<td bgcolor="#aaaaaa" align="center">comm</td>
+				<td><input type="text" name="comm" value="<%=rs.getInt(7) %>"></td>
+			</tr>
+			<tr>
+				<td bgcolor="#aaaaaa" align="center">dname</td>
+				<td><%=rs.getString(8) %></td>
+			</tr>
+			<tr>
+				<td colspan="2"  align="center">
+					<input type="submit" value="수 정">
+					<input type="reset" value="취 소">
+				</td>
 			</tr>
 			<%
 				} 
@@ -67,7 +95,7 @@
 			}
 			%>
 		</table>
-		<a href="add.jsp">[입 력]</a>
+		</form>
 		</center>
 		<!-- content end -->
 		</td>
