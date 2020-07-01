@@ -23,54 +23,29 @@
 		<td colspan="6">
 		<!-- content start -->
 		<center>
-		<h1>DEPT LIST PAGE</h1>
-		<table border="1" width="600">
+		<h1>DEPT ADD PAGE</h1>
+		<form action="insert.jsp">
+			<table>
 			<tr>
-				<th width="50">DEPTNO</th>
-				<th>DNAME</th>
-				<th>LOC</th>
-				<th width="50">DEL</th>
+				<td>deptno</td>
+				<td><input type="text" name="deptno"></td>
 			</tr>
-			<%
-			String sql="select * from dept order by deptno";
-			String url="jdbc:oracle:thin:@127.0.0.1:1521:xe";
-			String driver="oracle.jdbc.driver.OracleDriver";
-			String user="scott";
-			String password="tiger";
-			
-			Class.forName(driver);
-			java.util.Properties info=new java.util.Properties();
-			info.setProperty("user",user);
-			info.setProperty("password",password);
-			
-			Connection conn=null;
-			Statement stmt=null;
-			ResultSet rs=null;
-			try{
-				conn=DriverManager.getConnection(url, info);
-				stmt=conn.createStatement();
-				rs=stmt.executeQuery(sql);
-				while(rs.next()){
-				
-			%>
 			<tr>
-				<td><%=rs.getInt(1) %></td>
-				<td><%=rs.getString(2) %></td>
-				<td><%=rs.getString(3) %></td>
-				<td><input type="button" value="삭제"></td>
+				<td>dname</td>
+				<td><input type="text" name="dname"></td>
 			</tr>
-			<%
-				}
-			}catch(Exception e){
-				e.printStackTrace();
-			}finally{
-				if(rs!=null)rs.close();
-				if(stmt!=null)stmt.close();
-				if(conn!=null)conn.close();
-			}
-			%>
-		</table>
-		<a href="add.jsp">[입 력]</a>
+			<tr>
+				<td>loc</td>
+				<td><input type="text" name="loc"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" value="입 력">
+					<input type="reset" value="취 소">
+				</td>
+			</tr>
+			</table>
+		</form>
 		</center>
 		<!-- content end -->
 		</td>
