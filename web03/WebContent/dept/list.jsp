@@ -29,7 +29,7 @@
 				<th width="50">DEPTNO</th>
 				<th>DNAME</th>
 				<th>LOC</th>
-				<th width="50">DEL</th>
+				<th width="40">DEL</th>
 			</tr>
 			<%
 			String sql="select * from dept order by deptno";
@@ -57,7 +57,12 @@
 				<td><%=rs.getInt(1) %></td>
 				<td><%=rs.getString(2) %></td>
 				<td><%=rs.getString(3) %></td>
-				<td><input type="button" value="삭제"></td>
+				<td>
+					<form action="delete.jsp" method="get">
+						<input type="hidden" name="deptno" value="<%=rs.getInt(1) %>">
+						<input type="submit" value="삭제">
+					</form>
+				</td>
 			</tr>
 			<%
 				}
