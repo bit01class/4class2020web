@@ -36,7 +36,7 @@
 	if(key==null)key="sub";
 	if(word==null)word="";
 	String sql="select num,sub,id,nalja,lev from bbs01 where "+key;
-	sql+=" like '%"+word+"%'  order by ref desc,no desc";
+	sql+=" like '%"+word+"%'  order by ref desc,no asc";
 	String driver="oracle.jdbc.driver.OracleDriver";
 	String url="jdbc:oracle:thin:@localhost:1521:xe";
 	String user="scott";
