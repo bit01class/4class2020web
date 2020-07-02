@@ -3,7 +3,7 @@ drop sequence bbs01_seq;
 --
 create table bbs01(
 	num number primary key,
-	sub varchar2(30) default '力格绝澜',
+	sub varchar2(60) default '力格绝澜',
 	nalja date,
 	id varchar2(30),
 	cntnt varchar2(2000)

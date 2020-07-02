@@ -74,6 +74,7 @@
 				<input type="text" name="word">
 				<input type="submit" value="검색">
 			</form>
+			<a href="add.jsp">[입 력]</a>
 			</center>
 		</td>
 	</tr>
