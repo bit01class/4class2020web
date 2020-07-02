@@ -35,7 +35,8 @@
 	String word=request.getParameter("word");
 	if(key==null)key="sub";
 	if(word==null)word="";
-	String sql="select num,sub,id,nalja from bbs01 where "+key+" like '%"+word+"%' order by num desc";
+	String sql="select num,sub,id,nalja,lev from bbs01 where "+key;
+	sql+=" like '%"+word+"%'  order by ref desc,no desc";
 	String driver="oracle.jdbc.driver.OracleDriver";
 	String url="jdbc:oracle:thin:@localhost:1521:xe";
 	String user="scott";
@@ -50,12 +51,18 @@
 		stmt=conn.createStatement();
 		rs=stmt.executeQuery(sql);
 		while(rs.next()){
+			int gap=rs.getInt(5);
+			String msg="";
+			for(int i=0; i<gap; i++){
+				msg+="&nbsp;&nbsp;&nbsp;";
+			}
+			if(gap!=0)msg+="¦±";
 %>
 				<tr>
-					<td><%=rs.getInt(1) %></td>
-					<td><%=rs.getString(2) %></td>
-					<td><%=rs.getString(3) %></td>
-					<td><%=rs.getDate(4) %></td>
+					<td><a href="detail.jsp?idx=<%=rs.getInt(1) %>"><%=rs.getInt(1) %></a></td>
+					<td><a href="detail.jsp?idx=<%=rs.getInt(1) %>"><%=msg+rs.getString(2) %></a></td>
+					<td><a href="detail.jsp?idx=<%=rs.getInt(1) %>"><%=rs.getString(3) %></a></td>
+					<td><a href="detail.jsp?idx=<%=rs.getInt(1) %>"><%=rs.getDate(4) %></a></td>
 				</tr>
 <%
 		}

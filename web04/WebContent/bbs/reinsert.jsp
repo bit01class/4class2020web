@@ -16,6 +16,16 @@
 // Method -> Post 방식의 한글처리
 // 매 파리미터 파싱전 엔코딩
 	request.setCharacterEncoding("EUC-KR");
+	int ref=Integer.parseInt(request.getParameter("ref"));
+	int no=Integer.parseInt(request.getParameter("no"));
+	int lev=Integer.parseInt(request.getParameter("lev"));
+	String sql1="update bbs01 set no=no+1 where ref="+ref;
+	if(lev==0){
+		no=0;
+	}else{
+		sql1+=" and no>="+no;
+	}
+	lev+=1;
 	String sub=request.getParameter("sub");
 	String id=request.getParameter("id");
 	String cntnt=request.getParameter("cntnt");
@@ -27,9 +37,9 @@
 	//sub=sub.replace(" ", "&nbsp;");
 	sub=sub.replace("'", "＇");
 	
-	String sql="insert into bbs01 (num,sub,id,nalja,cntnt,ref,no,lev) values (";
-	sql+="bbs01_seq.nextval,'"+sub+"','"+id+"',sysdate,'"+cntnt+"',bbs01_seq.currval,0,0)";
-	System.out.println(sql);
+	String sql2="insert into bbs01 (num,sub,id,nalja,cntnt,ref,no,lev) values (";
+	sql2+="bbs01_seq.nextval,'"+sub+"','"+id+"',sysdate,'"+cntnt+"',"+ref+","+no+","+lev+")";
+	System.out.println(sql2);
 	
 	String driver="oracle.jdbc.driver.OracleDriver";
 	String url="jdbc:oracle:thin:@localhost:1521:xe";
@@ -44,7 +54,9 @@
 	try{
 		conn=DriverManager.getConnection(url, user, password);
 		stmt=conn.createStatement();
-		stmt.executeUpdate(sql);
+		stmt.executeUpdate(sql1);
+		stmt=conn.createStatement();
+		stmt.executeUpdate(sql2);
 	}finally{
 		if(stmt!=null)stmt.close();
 		if(conn!=null)conn.close();
