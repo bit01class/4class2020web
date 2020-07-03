@@ -3,7 +3,7 @@
 	<tr>
 		<td align="center" bgcolor="gray">
 			<a href="/web05/index.jsp" style="color:white;">[HOME]</a>
-			<a href="/web05/emp/list.jsp" style="color:white;">[E M P]</a>
+			<a href="/web05/emp/list2.jsp" style="color:white;">[E M P]</a>
 			<a href="/web05/dept/list.jsp" style="color:white;">[DEPT]</a>
 			<a href="/web05/login/form.jsp" style="color:white;">[LOGIN]</a>
 		</td>

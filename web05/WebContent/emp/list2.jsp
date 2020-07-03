@@ -67,7 +67,7 @@
 	<!--  -->
 	<%
 	int lang=10;
-	int limit=(tot-1)/lang+1;
+	int limit=(tot-1)/10+1;
 	int start=((p-1)/lang)*lang;
 	int end=start+lang;
 	if(end>limit) end=limit;
