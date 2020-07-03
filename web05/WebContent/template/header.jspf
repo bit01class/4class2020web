@@ -1,8 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%
+java.sql.Connection conn=null;
+java.sql.Statement stmt=null;
+java.sql.ResultSet rs=null;
+String driver="oracle.jdbc.driver.OracleDriver";
+String url="jdbc:oracle:thin:@localhost:1521:xe";
+String user="scott";
+String password="tiger";
+%>
 <table width="1024" align="center" bgcolor="white">
 	<tr>
 		<td>
+		<p align="right"><%
+		Object obj=session.getAttribute("name");
+		if(obj!=null){
+			String loginName=(String)obj;
+			out.print(loginName+"´Ô ·Î±×ÀÎ Áß...");
+		}
+		%></p>
 		<img src="/web05/img/logo.png">
 		</td>
 	</tr>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

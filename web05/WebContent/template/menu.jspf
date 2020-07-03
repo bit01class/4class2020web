@@ -5,7 +5,17 @@
 			<a href="/web05/index.jsp" style="color:white;">[HOME]</a>
 			<a href="/web05/emp/list2.jsp" style="color:white;">[E M P]</a>
 			<a href="/web05/dept/list.jsp" style="color:white;">[DEPT]</a>
+			<%
+			if(obj==null){
+			%>
 			<a href="/web05/login/form.jsp" style="color:white;">[LOGIN]</a>
+			<%
+			}else{
+			%>
+			<a href="/web05/login/logout.jsp" style="color:white;">[LOGOUT]</a>
+			<%
+			}
+			%>
 		</td>
 	</tr>
 	<tr>

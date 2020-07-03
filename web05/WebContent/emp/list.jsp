@@ -10,6 +10,7 @@
 <%@ include file="../template/header.jspf" %>
 <%@ include file="../template/menu.jspf" %>
 	<h1>LIST PAGE</h1>
+	<p align="right"><a href="add.jsp">[입 력]</a></p>
 	<table width="95%" border="1" cellspacing="0" align="center">
 		<tr>
 			<th>사번</th>

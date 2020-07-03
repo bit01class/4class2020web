@@ -10,6 +10,7 @@
 <%@ include file="../template/header.jspf" %>
 <%@ include file="../template/menu.jspf" %>
 	<h1>LIST PAGE</h1>
+	<p align="right"><a href="add.jsp">[입 력]</a></p>
 	<table width="95%" border="1" cellspacing="0" align="center">
 		<tr>
 			<th>사번</th>
@@ -28,15 +29,8 @@
 		String sql="select * from (select rownum as rn,sabun,name,nalja,pay from ";
 		sql+=" (select * from emp01 order by sabun desc)) where rn between ";
 		sql+=startNum+" and "+endNum;
-		String driver="oracle.jdbc.driver.OracleDriver";
-		String url="jdbc:oracle:thin:@localhost:1521:xe";
-		String user="scott";
-		String password="tiger";
 		
 		Class.forName(driver);
-		Connection conn=null;
-		Statement stmt=null;
-		ResultSet rs=null;
 		try{
 			conn=DriverManager.getConnection(url, user, password);
 			stmt=conn.createStatement();
@@ -49,10 +43,10 @@
 			while(rs.next()){
 		%>
 		<tr>
-			<td><a href="#"><%=rs.getInt("sabun") %></a></td>
-			<td><a href="#"><%=rs.getString("name") %></a></td>
-			<td><a href="#"><%=rs.getDate("nalja") %></a></td>
-			<td><a href="#"><%=rs.getInt("pay") %></a></td>
+			<td><a href="detail.jsp?idx=<%=rs.getInt("sabun") %>"><%=rs.getInt("sabun") %></a></td>
+			<td><a href="detail.jsp?idx=<%=rs.getInt("sabun") %>"><%=rs.getString("name") %></a></td>
+			<td><a href="detail.jsp?idx=<%=rs.getInt("sabun") %>"><%=rs.getDate("nalja") %></a></td>
+			<td><a href="detail.jsp?idx=<%=rs.getInt("sabun") %>"><%=rs.getInt("pay") %></a></td>
 		</tr>
 		<%
 			}
@@ -84,12 +78,7 @@
 	}
 	%>
 	
-	<br>	<br>	<br>	<br>
-		<a href="list2.jsp?page=1">[1]</a>
-		<a href="list.jsp?page=2">[2]</a>
-		<a href="list.jsp?page=3">[3]</a>
-		<a href="list.jsp?page=4">[4]</a>
-		<a href="list.jsp?page=5">[5]</a>
+	
 	</center>
 <%@ include file="../template/footer.jspf" %>
 </body>
