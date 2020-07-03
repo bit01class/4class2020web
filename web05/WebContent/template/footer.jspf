@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!-- content end -->
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="gray" align="center">
+			<font color="white">
+			비트캠프 서울시 서초구 강남대로 459 (서초동, 백암빌딩)<br>
+			(주)비트컴퓨터 서초본원<br>
+			Copyright (c) 비트캠프 All rights reserved.<br>
+			</font>
+		</td>
+	</tr>
+</table>

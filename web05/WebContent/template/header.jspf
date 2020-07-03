@@ -1,0 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<table width="1024" align="center" bgcolor="white">
+	<tr>
+		<td>
+		<img src="/web05/img/logo.png">
+		</td>
+	</tr>
