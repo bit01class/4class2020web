@@ -1,3 +1,5 @@
+<%@page import="com.bit.emp.dto.Emp02Bean"%>
+<%@page import="com.bit.emp.Emp02Detail"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -24,30 +26,37 @@
 		<tr>
 			<td>
 				<!-- centent start -->
-				<h1 align="center">목 록</h1>
+<%
+	String param=request.getParameter("idx");
+	int sabun=Integer.parseInt(param);
+	Emp02Detail emp=new Emp02Detail();
+	Emp02Bean bean=emp.detail(sabun);
+%>
+				<h1>상세페이지</h1>
 				<table width="800" align="center">
 					<tr>
-						<th width="80">사번</th>
-						<th>이름</th>
-						<th width="120">날짜</th>
-						<th width="120">금액</th>
+						<td>사번</td>
+						<td><%=bean.getSabun() %></td>
 					</tr>
-					<%
-					com.bit.emp.Emp02list emp=null;
-					emp=new com.bit.emp.Emp02list();
-					java.util.ArrayList<com.bit.emp.dto.Emp02Bean> list=emp.list();
-					for(int i=0; i<list.size(); i++){
-						com.bit.emp.dto.Emp02Bean bean=list.get(i);
-					%>
 					<tr>
-						<td><a href="detail.jsp?idx=<%=bean.getSabun() %>"><%=bean.getSabun() %></a></td>
-						<td><a href="detail.jsp?idx=<%=bean.getSabun() %>"><%=bean.getName() %></a></td>
-						<td><a href="detail.jsp?idx=<%=bean.getSabun() %>"><%=bean.getNalja() %></a></td>
-						<td><a href="detail.jsp?idx=<%=bean.getSabun() %>"><%=bean.getPay() %></a></td>
+						<td>이름</td>
+						<td><%=bean.getName() %></td>
 					</tr>
-					<%} %>
-				</table>	
-				<a href="add.jsp">[입 력]</a>
+					<tr>
+						<td>날짜</td>
+						<td><%=bean.getNalja() %></td>
+					</tr>
+					<tr>
+						<td>금액</td>
+						<td><%=bean.getPay() %></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<a href="edit.jsp?idx=<%=bean.getSabun() %>">[수 정]</a>
+							<a href="delete.jsp?idx=<%=bean.getSabun() %>">[삭 제]</a>
+						</td>
+					</tr>
+				</table>
 				<!-- centent end -->
 			</td>
 		</tr>

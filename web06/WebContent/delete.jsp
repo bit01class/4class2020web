@@ -1,3 +1,4 @@
+<%@page import="com.bit.emp.Emp02Delete"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -24,30 +25,33 @@
 		<tr>
 			<td>
 				<!-- centent start -->
-				<h1 align="center">목 록</h1>
-				<table width="800" align="center">
-					<tr>
-						<th width="80">사번</th>
-						<th>이름</th>
-						<th width="120">날짜</th>
-						<th width="120">금액</th>
-					</tr>
+					<!-- POST -->
 					<%
-					com.bit.emp.Emp02list emp=null;
-					emp=new com.bit.emp.Emp02list();
-					java.util.ArrayList<com.bit.emp.dto.Emp02Bean> list=emp.list();
-					for(int i=0; i<list.size(); i++){
-						com.bit.emp.dto.Emp02Bean bean=list.get(i);
+					if("POST".equals(request.getMethod())){
+						int sabun=Integer.parseInt(request.getParameter("sabun"));
+						Emp02Delete emp=new Emp02Delete();
+						emp.delete(sabun);
+						response.sendRedirect("list.jsp");
+						return;
+					}
 					%>
-					<tr>
-						<td><a href="detail.jsp?idx=<%=bean.getSabun() %>"><%=bean.getSabun() %></a></td>
-						<td><a href="detail.jsp?idx=<%=bean.getSabun() %>"><%=bean.getName() %></a></td>
-						<td><a href="detail.jsp?idx=<%=bean.getSabun() %>"><%=bean.getNalja() %></a></td>
-						<td><a href="detail.jsp?idx=<%=bean.getSabun() %>"><%=bean.getPay() %></a></td>
-					</tr>
-					<%} %>
-				</table>	
-				<a href="add.jsp">[입 력]</a>
+					<!-- GET -->
+					<table align="center" width="400">
+						<tr>
+							<td align="center">
+								<%=request.getParameter("idx")%>번 글을 삭제 하시겠습니까?
+							</td>
+						</tr>
+						<tr>
+							<td align="center">
+								<form method="post">
+									<input type="hidden" name="sabun" value="<%=request.getParameter("idx")%>">
+									<input type="submit" value="삭 제"> 
+								</form>
+							</td>
+						</tr>
+					</table>
+					
 				<!-- centent end -->
 			</td>
 		</tr>
