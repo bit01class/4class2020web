@@ -61,6 +61,34 @@ public class EmpCRUD {
 			}
 		}
 	}
+	
+	public static EmpDto detail(int sabun){
+		EmpDto bean=new EmpDto();
+		String sql="select * from emp02 where sabun="+sabun;
+		try {
+			conn=MyOracle.getConn();
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			if(rs.next()){
+				bean.setSabun(rs.getInt("sabun"));
+				bean.setName(rs.getString("name"));
+				bean.setNalja(rs.getDate("nalja"));
+				bean.setPay(rs.getInt("pay"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null)rs.close();
+				if(stmt!=null)stmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return bean;
+	}
 }
 
 

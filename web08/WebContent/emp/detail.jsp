@@ -28,31 +28,39 @@
 			<td>
 				<!-- content start -->
 				<center>
-				<h1>리스트 페이지</h1>
-				<table width="800">
-					<tr>
-						<th>사번</th>
-						<th>이름</th>
-						<th>날짜</th>
-						<th>금액</th>
-					</tr>
-					<%
-					ArrayList<EmpDto> list=EmpCRUD.list();	
-					
-					for(int i=0; i<list.size(); i++){
-						EmpDto bean=list.get(i);
-					%>
-					<tr>
-						<td><a href="detail.jsp?sabun=<%=bean.getSabun() %>"><%=bean.getSabun() %></a></td>
-						<td><a href="detail.jsp?sabun=<%=bean.getSabun() %>"><%=bean.getName() %></a></td>
-						<td><a href="detail.jsp?sabun=<%=bean.getSabun() %>"><%=bean.getNalja() %></a></td>
-						<td><a href="detail.jsp?sabun=<%=bean.getSabun() %>"><%=bean.getPay() %></a></td>
-					</tr>
-					<%
-					}
-					%>
-				</table>
-				<a href="add.jsp">[입 력]</a>
+				<h1>상세 페이지</h1>
+				<jsp:useBean id="bean" class="com.bit.emp.EmpDto"></jsp:useBean>
+				<jsp:setProperty property="sabun" name="bean"/>
+				<%
+//com.bit.emp.EmpDto bean2=new com.bit.emp.EmpDto();
+//bean2.setSabun(Integer.parseInt(request.getParameter("sabun")));
+				
+				bean=EmpCRUD.detail(bean.getSabun());
+				%>
+					<table width="800">
+						<tr>
+							<td width="300" bgcolor="#cccccc">사번</td>
+							<td><%=bean.getSabun() %></td>
+						</tr>
+						<tr>
+							<td width="300" bgcolor="#cccccc">이름</td>
+							<td><%=bean.getName() %></td>
+						</tr>
+						<tr>
+							<td width="300" bgcolor="#cccccc">날짜</td>
+							<td><%=bean.getNalja() %></td>
+						</tr>
+						<tr>
+							<td width="300" bgcolor="#cccccc">금액</td>
+							<td><%=bean.getPay() %></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center">
+								<a href="edit.jsp?sabun=<%=bean.getSabun()%>&name=<%=bean.getName()%>&pay=<%=bean.getPay()%>">[수 정]</a>
+								<a href="delete.jsp">[삭 제]</a>
+							</td>
+						</tr>
+					</table>
 				</center>
 				<!-- content end -->
 			</td>
