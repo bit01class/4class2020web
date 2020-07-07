@@ -1,0 +1,22 @@
+<%@page import="com.bit.dept.DeptDto"%>
+<%@page import="oracle.jdbc.util.Login"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+		<tr>
+			<td align="center" bgcolor="#cccccc">
+				<a href="<%=path %>index.jsp">[HOME]</a>
+				<a href="<%=path %>emp/list.jsp">[E M P]</a>
+				<a href="<%=path %>dept/list.jsp">[DEPT]</a>
+				<%
+				DeptDto login2=(DeptDto)session.getAttribute("login");
+				if(login2.isResult()){ 
+				%>
+				<a href="<%=path %>login/form.jsp">[LOGOUT]</a>
+				<%}else{ %>
+				<a href="<%=path %>login/form.jsp">[LOGIN]</a>
+				<%} %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<!-- content start -->
