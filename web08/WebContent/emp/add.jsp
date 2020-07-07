@@ -28,31 +28,29 @@
 			<td>
 				<!-- content start -->
 				<center>
-				<h1>리스트 페이지</h1>
-				<table width="800">
-					<tr>
-						<th>사번</th>
-						<th>이름</th>
-						<th>날짜</th>
-						<th>금액</th>
-					</tr>
-					<%
-					ArrayList<EmpDto> list=EmpCRUD.list();	
-					
-					for(int i=0; i<list.size(); i++){
-						EmpDto bean=list.get(i);
-					%>
-					<tr>
-						<td><%=bean.getSabun() %></td>
-						<td><%=bean.getName() %></td>
-						<td><%=bean.getNalja() %></td>
-						<td><%=bean.getPay() %></td>
-					</tr>
-					<%
-					}
-					%>
-				</table>
-				<a href="add.jsp">[입 력]</a>
+				<h1>입력 페이지</h1>
+				<form action="insert.jsp" method="post">
+					<table>
+						<tr>
+							<td>사번</td>
+							<td><input type="text" name="sabun"></td>
+						</tr>
+						<tr>
+							<td>이름</td>
+							<td><input type="text" name="name"></td>
+						</tr>
+						<tr>
+							<td>금액</td>
+							<td><input type="text" name="pay"></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center">
+								<input type="submit" value="입 력">
+								<input type="reset" value="취 소">
+							</td>
+						</tr>
+					</table>
+				</form>
 				</center>
 				<!-- content end -->
 			</td>
