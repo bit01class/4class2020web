@@ -15,7 +15,7 @@
 			<td align="center" bgcolor="#cccccc">
 				<a href="?title=main">[HOME]</a>
 				<a href="?title=intro">[INTRO]</a>
-				<a href="">[E M P]</a>
+				<a href="?title=emp/list">[E M P]</a>
 				<a href="">[LOGIN]</a>
 			</td>
 		</tr>
