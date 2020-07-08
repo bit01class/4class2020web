@@ -49,5 +49,6 @@ try{
 		</tr>
 		<%} %>
 	</table>
+	<a href="?title=emp/add">[ют ╥б]</a>
 </body>
 </html>
