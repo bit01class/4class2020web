@@ -42,10 +42,10 @@ try{
 		for(EmpDto bean : list){
 		%>
 		<tr>
-			<td><%=bean.getSabun() %></td>
-			<td><%=bean.getName() %></td>
-			<td><%=bean.getNalja() %></td>
-			<td><%=bean.getPay() %></td>
+			<td><a href="?title=emp/detail&sabun=<%=bean.getSabun() %>"><%=bean.getSabun() %></a></td>
+			<td><a href="?title=emp/detail&sabun=<%=bean.getSabun() %>"><%=bean.getName() %></a></td>
+			<td><a href="?title=emp/detail&sabun=<%=bean.getSabun() %>"><%=bean.getNalja() %></a></td>
+			<td><a href="?title=emp/detail&sabun=<%=bean.getSabun() %>"><%=bean.getPay() %></a></td>
 		</tr>
 		<%} %>
 	</table>
