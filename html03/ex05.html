@@ -17,11 +17,20 @@
         list-style: none; width: 100px; float: left;
     }
     #menu>ul>li:last-child{border-right: 1px solid white;}
-    #menu>ul>li>a{
+    #menu>ul>li{
+        height: 50px;
         display: block; color: white;
         text-align: center; text-decoration: none;
+        transition-duration: 3s;
+        overflow: hidden;
     }
-    #menu>ul>li>a:hover{color: yellow;}
+    #menu>ul>li>ol{
+        margin-top: 25px;
+    }
+    #menu>ul>li:hover{
+        color: yellow;
+        height: 200px;
+    }
     #header{}
     #header>h1{
         width: 213px;
@@ -65,7 +74,14 @@
             <ul>
                 <li><a href="#">비트캠프</a></li>
                 <li><a href="#">교육센터</a></li>
-                <li><a href="#">교육과정</a></li>
+                <li>교육과정
+                    <ol>
+                        <li><a href="#">3-1</a></li>
+                        <li><a href="#">3-2</a></li>
+                        <li><a href="#">3-3</a></li>
+                        <li><a href="#">3-4</a></li>
+                    </ol>
+                </li>
                 <li><a href="#">커뮤니티</a></li>
                 <li><a href="#">지원센터</a></li>
                 <li><a href="#">멘토링</a></li>

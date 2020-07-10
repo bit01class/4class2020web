@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<style rel="stylesheet" type="text/css">
+    a{
+        width: 100px;height: 100px;display: block;
+        text-indent: -999px;
+        background-image: url(img/car.jpg);
+        background-size: 100px;
+        background-repeat: no-repeat;
+        background-position: right;
+        transition-duration: 3s;
+    }
+    a:nth-child(1){
+        transition-timing-function: ease-in;
+        transition-delay: 1s;    
+    }
+    a:nth-child(2){
+        transition-timing-function: ease-out;
+    }
+    a:hover{
+        width: 500px;
+    }
+</style>
+    </head>
+    <body>
+        <a href="#">item1</a>
+        <a href="#">item2</a>
+        
+    </body>
+</html>
