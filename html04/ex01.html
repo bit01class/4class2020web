@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style rel="stylesheet" type="text/css">
+    div>span{
+        background-color: gray;
+        display: inline-block;
+        width: 200px;
+        height: 100px;
+        background-image: url(img/car.jpg);
+        background-size: 100px;
+        background-repeat: no-repeat;
+        animation-name: ani02;
+        animation-duration: 5s;
+        animation-timing-function: ease-in;
+        /*animation-delay: 2s;*/
+        animation-iteration-count: 2;
+        animation-direction: alternate;
+    }
+    @keyframes ani02{
+        0%{ margin-left: 0px;}
+        /*25%{
+            margin-top: -50px;
+        }
+        50%{ 
+            margin-top: 100px;
+            background-color: red;
+        }*/
+        100%{margin-left: 400px;}
+    }
+    
+    @keyframes ani01{
+        from{
+            background-color: red;
+            margin-left: 0px;
+        }
+        to{
+            margin-left: 400px;
+        }
+    }
+
+</style>
+</head>
+<body>
+    <h1>애니메이션</h1>
+    <div>
+        <span></span>
+    </div>
+</body>
+</html>
