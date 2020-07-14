@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+    // 타입
+    // boolean타입(true==1,true!==1, false==0, false!==0)
+    var a1;
+    //a1=true;
+    a1=new Boolean(true);
+    console.log(a1==true,a1===true,typeof a1);
+    // 숫자타입(number,실수형)
+    var b1;
+    b1=1234;
+    b1=3.14;
+    b1=3.0;
+    b1=new Number(3.14);
+    console.log(b1.toString(),typeof b1);
+    console.log(Number.isNaN(parseInt("$100")));
+    b1=1234;
+    console.log(b1.toString(),typeof b1);
+    // 문자열타입
+    // slice->(인덱스가 -로 가능) substring 
+    // substring-> substring
+    // substr-> (시작인덱스,로부터 몇개)
+    var c1;
+    c1='문자열';
+    //c1=new String();
+    console.log(c1.slice(0,2),typeof c1);
+    // Array타입(Array)
+    var d1;
+    d1=new Array();//[] "object"
+    d1=[1,3,5,7,9];//java : {1,3,5,7,9};
+    d1=new Array(2,4,6,8);//java : new int[]{2,4,6,8};
+    d1=new Array(4);
+    d1[0]='a';
+    d1[1]='b';
+    d1[2]='c';
+    d1[3]='d';
+    console.log('length:'+d1.length,typeof d1);
+    /*
+    for(var i=0; i<10; i++){
+        console.log(d1[i]);
+    }
+    */
+    d1=[5,3,9,1];
+    //d1.sort();
+    // d1.reverse();
+    d1.push(11);
+    d1.push(12);
+//    console.log(d1.shift());
+//    console.log(d1.shift());
+//    console.log(d1.shift());
+//    console.log(d1.shift());
+//    console.log(d1.shift());
+//    console.log(d1.shift());
+//    console.log(d1.pop());
+//    console.log(d1.pop());
+//    console.log(d1.pop());
+//    console.log(d1.pop());
+//    console.log(d1.pop());
+//    console.log(d1.pop());
+    /*
+    while(true){
+        if(d1.length==0)break;
+        console.log(d1.pop());
+    }
+    */
+    //var tmp;
+    /*while(tmp=d1.pop()){
+        console.log(tmp);
+    }*/
+    /*
+    d1.forEach(function (item,idx){
+        console.log(item,idx);
+    });
+    for(var idx in d1){
+        console.log(idx,d1[idx]);
+    }
+    */
+    
+    // Object타입(Map)
+    var e1;
+    e1=new Object();//{} "object"
+    //e1={'key1':'val1','key2':true};
+    
+    e1['key3']=1234;
+    e1['key4']=new Array(2,4,6);
+    e1[true]='val5';
+    e1[d1]='val6';
+    e1[7]='val7';
+    window.e1['key8']=[1,3,5,7];
+    
+    
+    console.log(e1['key8'][2],e1.key8[2]);
+    console.log(e1.key3);
+    console.log(e1['key9'],e1.key9);
+    console.log(g1);
+    console.log(e1,typeof e1);
+    /*
+    for(var key in e1){
+        console.log(key,e1[key]);
+    }
+    */
+    // function타입
+    
+    
+    // null타입
+    // undefine타입
+</script>
+
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
