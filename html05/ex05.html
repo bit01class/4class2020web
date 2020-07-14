@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+    var a=1234;
+    function func01(){
+        console.log(this==window);
+    }
+    var obj={};
+    obj.key='test';
+    obj.getKey=function(){return this.key;};
+    obj.setKey=function(a){this.key=a;};
+    
+    obj.setKey('abcd');
+    console.log(obj.getKey());
+</script>
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

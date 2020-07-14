@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+    // js : 함수와 메서드
+    
+    var obj={'key1':'val1','key2':function(){}};
+    var obj=new Object();
+    obj.key1='val1';
+    obj.key2=function(){};
+    
+    function fun(a){
+        console.log(typeof a);
+        if( typeof a=='function') a();
+        if((typeof a).toLowerCase()=='string') console.log(a);
+        if((typeof a).toLowerCase()=='number') console.log(a+1);
+    }
+    
+    //fun(function(){console.log('test');});
+    
+</script>
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

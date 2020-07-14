@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+    // 클로저
+    // 변수의 라이프사이클을 벋어나서 계속 사용가능
+    /*function func01(){
+        var z=function(){console.log('test');};
+        return z;
+    }*/
+    function func02(){
+        var obj={'key1':'val1'};
+        return function(){
+            console.log('test func02...'+obj.key1);
+        };
+    }
+    var a=func02();
+    a();
+    //console.log(a);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

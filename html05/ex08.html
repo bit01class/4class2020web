@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+    
+    function Func01(){}
+    
+    var obj2=new Func01();
+    
+    var objkey=new Object();    // ===
+    var objkey2={'k':'v'};    // ===
+    var obj={};
+    obj['key1']='val1';
+    obj.key2='val2';
+    obj[objkey2]='val3';
+    obj.objkey='val4';
+    
+//    console.log(obj.key1);
+//    console.log(obj['key2']);
+//    console.log(obj.objkey);
+//    console.log(obj[{}]);
+    
+    for(var key in obj){
+        console.log(typeof key,key);
+    }
+    
+</script>
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
