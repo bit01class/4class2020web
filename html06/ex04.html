@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+    //var frame=window.open("https://naver.com");
+    //frame.close();
+    var frame;
+    function func01(){
+       //window.open(URL, name, specs, replace)
+    frame=window.open("https://naver.com","_blank"
+                      ,"width=200,height=100");
+    }
+    function func02(){
+        frame.close();
+    }
+</script>
+</head>
+
+<body>
+    <button onclick="func01();">open</button>
+    <button onclick="func02();">close</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

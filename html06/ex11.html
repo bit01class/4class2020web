@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    div{}    
+    div>ul{
+        width: 1920px;
+        animation-name: ani1;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+        animation-play-state: paused;
+    }    
+    div>ul>li{
+        list-style: none;
+        float: left;
+    }    
+    div>ul>li>img{}   
+    
+    @keyframes ani1{
+        from{margin-left: 0px}
+        to{margin-left: -1600px}
+    }
+</style>
+</head>
+
+<body>
+    <h1>애니메이션</h1>
+    <div>
+        <ul>
+            <li><img src="img/big01.jpg"/></li>
+            <li><img src="img/big02.jpg"/></li>
+            <li><img src="img/big03.jpg"/></li>
+            <li><img src="img/big04.jpg"/></li>
+            <li><img src="img/big05.jpg"/></li>
+            <li><img src="img/big06.jpg"/></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+    var ul=document.querySelector('ul');
+    //ul.style.webkitAnimationName='ani1';
+    ul.style.animationPlayState='running';
+    </script>
+</body>
+</html>

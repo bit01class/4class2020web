@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    ul{
+        overflow: hidden;
+        height: 320px;
+        width: 960px;
+    }    
+    ul>li{
+        list-style: none;
+        float: left;
+    }    
+    ul>li>img{}
+</style>
+</head>
+<body>
+    <ul>
+        <li><img src="img/big01.jpg" /></li>
+        <li><img src="img/big02.jpg" /></li>
+        <li><img src="img/big03.jpg" /></li>
+        <li><img src="img/big04.jpg" /></li>
+        <li><img src="img/big05.jpg" /></li>
+        <li><img src="img/big06.jpg" /></li>
+    </ul>
+<script type="text/javascript">
+    var ul=document.querySelector('ul');
+    function loop(){
+        var first=ul.firstElementChild;
+        ul.appendChild(first);
+//        var copyli=first.cloneNode();
+//        var copyimg=first.firstElementChild.cloneNode();
+//        copyli.appendChild(copyimg);
+//        ul.appendChild(copyli);
+        setTimeout(loop,3000);
+    }
+    setTimeout(loop,3000);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

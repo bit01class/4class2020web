@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+
+</head>
+
+<body>
+    <h1>document</h1>
+    
+    
+<script type="text/javascript">
+    var cnt=0;
+    function newInstance(a,b,c){
+        cnt++;
+        var obj={'num':cnt,'name':'tester',
+                 'kor':0,'eng':0,'math':0,
+                'setKor':function(kor){
+                    this.kor=kor;},
+                 'setEng':function(eng){
+                     this.eng=eng;},
+                 'setMath':function(math){
+                     this.math=math;},
+                 'getKor':function(){return this.kor;},
+                 'getEng':function(){return this.eng;},
+                 'getMath':function(){return this.math;}
+                };
+        obj.setKor(a);
+        obj.setEng(b);
+        obj.setMath(c);
+        return obj;
+    }
+    var arr=new Array();
+    arr.push(newInstance(90,80,70));
+    arr.push(newInstance(81,82,83));
+    arr.push(newInstance(97,65,86));
+    
+    window.document.write('<table>');
+    window.document.write('<tr>');
+    window.document.write('<th>학번</th>');
+    window.document.write('<th>이름</th>');
+    window.document.write('<th>국어</th>');
+    window.document.write('<th>영어</th>');
+    window.document.write('<th>수학</th>');
+    window.document.write('</tr>');
+    for(var i=0; i<arr.length; i++){
+        obj=arr[i];
+        window.document.write('<tr>');
+        window.document.write('<td>'+obj.num+'</td>');
+        window.document.write('<td>'+obj.name+'</td>');
+        window.document.write('<td>'+obj.getKor()+'</td>');
+        window.document.write('<td>'+obj.getEng()+'</td>');
+        window.document.write('<td>'+obj.getMath()+'</td>');
+        window.document.write('</tr>');
+    }
+    window.document.write('</table>');
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

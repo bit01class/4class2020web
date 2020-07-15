@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+    <h1>리스트</h1>
+    <button onclick="func()">add</button>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+    </ul>
+    
+<script type="text/javascript">
+    var cnt=5;
+    var ul=document.lastElementChild.lastElementChild.lastElementChild.previousElementSibling;
+    
+    function func(){
+        var item5=document.createElement('li');
+        var msg=document.createTextNode('item'+cnt++);
+        item5.appendChild(msg);
+        ul.appendChild(item5);
+    }
+</script>
+</body>
+</html>

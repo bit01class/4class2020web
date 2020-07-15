@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	
+<style rel="stylesheet" type="text/css">
+    h1+div{
+        background-color: gray;
+        overflow: hidden;
+        height: 320px;
+        width: 320px;
+    }    
+    h1+div>ul{
+        padding: 0px;
+        width: 1920px;
+    }    
+    h1+div>ul>li{
+        list-style: none;
+        float: left;
+    }    
+    h1+div>ul>li>img{}    
+</style>
+</head>
+
+<body>
+    <h1>애니메이션</h1>
+    <div>
+        <ul>
+            <li><img src="img/big01.jpg"/></li>
+            <li><img src="img/big02.jpg"/></li>
+            <li><img src="img/big03.jpg"/></li>
+            <li><img src="img/big04.jpg"/></li>
+            <li><img src="img/big05.jpg"/></li>
+            <li><img src="img/big06.jpg"/></li>
+        </ul>
+    </div>
+<script type="text/javascript">
+var ul=document.querySelector('ul');
+ul.style.marginLeft='0px';
+//////
+var boo=true;
+function move(){ 
+    if(parseInt(ul.style.marginLeft)==-1600){
+        boo=false;
+    }else if(parseInt(ul.style.marginLeft)==0){
+        boo=true;
+    }
+    if(boo){
+ul.style.marginLeft=parseInt(ul.style.marginLeft)-10+'px';
+    }else{ ul.style.marginLeft=parseInt(ul.style.marginLeft)+10+'px';
+    }
+}
+setInterval(move,100);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
