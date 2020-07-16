@@ -37,6 +37,7 @@
         float: left;
     }    
     body>div>#menu>ul>li>a{
+        text-align: center;
         line-height: 50px;
         height: 50px;
         color: white;
@@ -69,15 +70,76 @@
         color: white;
         text-align: center;
         text-decoration: none;
-    } 
+    }
     body>div>#content>div>a:last-child{
         left: 860px;
     }   
     body>div>#footer{
         text-align: center;
         background-color: gray;
-    }    
+    }
+    body>div>#menu>ul>li>ol{
+        display: none;
+        position: absolute;
+        padding: 0px;
+    }
+    body>div>#menu>ul>li>ol>li{
+        width: 100px;
+        list-style: none;
+    }
+    body>div>#menu>ul>li>ol>li>a{
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        background-color: gray;
+    }
 </style>
+<script type="text/javascript">
+function cnext(){
+    cul.style.marginLeft
+        =parseInt(cul.style.marginLeft)-320+'px';
+}
+function cprev(){
+    cul.style.marginLeft
+        =parseInt(cul.style.marginLeft)+320+'px';
+}
+    var cul,prev,next;
+    var menus;
+    var cnt=0;
+window.onload=function(){
+    menus=document.querySelectorAll('#menu>ul>li');
+    
+    menus[1].onmouseover=function(){
+//    menus[1].onmouseenter=function(){
+        var ol=menus[1].querySelector('ol');
+        ol.style.display='block';
+        return false;
+    }
+    menus[1].onmouseout=function(){
+//    menus[1].onmouseleave=function(){
+        var ol=menus[1].querySelector('ol');
+        ol.style.display='none';
+        return false;
+    }
+    cul=document.querySelector('#content>div>ul');
+    cul.style.marginLeft='0px';
+    prev=document.querySelectorAll('#content>div>a')[0];
+    next=document.querySelectorAll('#content>div>a')[1];
+    prev.onclick=function(){
+        if(cnt-->0) cprev();
+        else cnt++;
+        return false;
+    };
+    next.onclick=function(){
+        if(cnt++<3) cnext();
+        else cnt--;
+        return false;
+    };
+};    
+</script>
 </head>
 <body>
     <div>
@@ -87,7 +149,14 @@
         <div id="menu">
             <ul>
                 <li><a href="#">menu1</a></li>
-                <li><a href="#">menu2</a></li>
+                <li><a href="#">menu2</a>
+                    <ol>
+                        <li><a href='#'>menu2-1</a></li>
+                        <li><a href='#'>menu2-2</a></li>
+                        <li><a href='#'>menu2-3</a></li>
+                        <li><a href='#'>menu2-4</a></li>
+                    </ol>
+                </li>
                 <li><a href="#">menu3</a></li>
                 <li><a href="#">menu4</a></li>
             </ul>
