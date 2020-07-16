@@ -16,7 +16,30 @@ window.onload=function(){
     form.onsubmit=function(){
         if(id.value=='') return false;
         if(pw.value=='') return false;
-        if(pw.value.length<4) return false;
+        if(pw.value.length<4||pw.value.length>6) return false;
+        // 정규표현식
+        var msg="AZaz@!#09";
+        var A=msg.charCodeAt(0);
+        var Z=msg.charCodeAt(1);
+        var a=msg.charCodeAt(2);
+        var z=msg.charCodeAt(3);
+        var su0=msg.charCodeAt(7);
+        var su9=msg.charCodeAt(8);
+        var ch1=true;var ch2=true;var ch3=true;
+        for(var i=0; i<pw.value.length; i++){
+            //if(!(ch1||ch2||ch3))break;
+            var su=pw.value.charCodeAt(i);
+            if(su>=A&&su<=Z||su>=a&&su<=z){
+                ch1=false;//문자가 포함되어 있는지
+            }else if(su>=su0&&su<=su9){
+                ch2=false;//숫자가 포함되어 있는지 
+            }else if(su==msg.charCodeAt(4)
+                     ||su==msg.charCodeAt(5)
+                     ||su==msg.charCodeAt(6)){
+                ch3=false;//특수문자가 포함되어 있는지
+            }
+        }
+        if(ch1||ch2||ch3)return false;
         return true;
     };
 };
@@ -31,7 +54,8 @@ window.onload=function(){
         </div>
         <div>
             <label for="pw">pw</label>
-            <input type="password" id="pw"/>(4자이상)
+            <input type="password" id="pw"/>
+            (4자이상 6자이하,영문 숫자 특수문자조합)
         </div>
         <div>
             <label for="rg"></label>
