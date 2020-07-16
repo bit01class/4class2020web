@@ -5,19 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    .err{
+        color: red;
+        font-size: 8px;
+        font-style: italic;
+    }
+</style>
 <script type="text/javascript">
 var btns;
-var form,id,pw;
+var form,id,pw,rg;
 window.onload=function(){
     form=document.querySelector('form');
     id=document.querySelector('#id');
     pw=document.querySelector('#pw');
     btns=document.querySelectorAll('button');
+    rg=document.querySelector('#rg');
+    rg.onchange=function(){
+        console.log('상태변화',rg.value);
+        rg.previousElementSibling.innerText=''+rg.value;
+    };
+    var errs=document.querySelectorAll('.err');
     form.onsubmit=function(){
-        if(id.value=='') return false;
-        if(pw.value=='') return false;
-        if(pw.value.length<4||pw.value.length>6) return false;
-        // 정규표현식
+        for(var i=0; i<errs.length; i++){
+            errs[i].innerText='';
+        }
+        
+        if(id.value==''){ 
+            errs[0].innerText='아이디는 필수';
+            return false;
+        }
+        if(pw.value==''){ 
+            errs[1].innerText='패스워드가 비었음';
+            return false;
+        }
+        if(pw.value.length<4||pw.value.length>6){
+            errs[1].innerText='패스워드는 4자이상 6자이하';
+            return false;
+        }
+        // 또는 정규표현식
         var msg="AZaz@!#09";
         var A=msg.charCodeAt(0);
         var Z=msg.charCodeAt(1);
@@ -39,7 +65,10 @@ window.onload=function(){
                 ch3=false;//특수문자가 포함되어 있는지
             }
         }
-        if(ch1||ch2||ch3)return false;
+        if(ch1||ch2||ch3){
+            errs[1].innerText='영문 숫자 특수문자조합';
+            return false;
+        }
         return true;
     };
 };
@@ -51,15 +80,16 @@ window.onload=function(){
         <div>
             <label for="id">id</label>
             <input type="text" id="id"/>
+            <span class="err"></span>
         </div>
         <div>
             <label for="pw">pw</label>
             <input type="password" id="pw"/>
-            (4자이상 6자이하,영문 숫자 특수문자조합)
+            <span class="err"></span>
         </div>
         <div>
             <label for="rg"></label>
-            <input type="range" id="rg"/>
+            <input type="range" min="1" max="50" id="rg"/>
         </div>
         <div>
             <input type="radio" name="ra">item1
