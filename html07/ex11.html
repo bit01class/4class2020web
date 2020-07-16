@@ -112,14 +112,14 @@ function cprev(){
 window.onload=function(){
     menus=document.querySelectorAll('#menu>ul>li');
     
-    menus[1].onmouseover=function(){
-//    menus[1].onmouseenter=function(){
+//    menus[1].onmouseover=function(){
+    menus[1].onmouseenter=function(){
         var ol=menus[1].querySelector('ol');
         ol.style.display='block';
         return false;
     }
-    menus[1].onmouseout=function(){
-//    menus[1].onmouseleave=function(){
+//    menus[1].onmouseout=function(){
+    menus[1].onmouseleave=function(){
         var ol=menus[1].querySelector('ol');
         ol.style.display='none';
         return false;

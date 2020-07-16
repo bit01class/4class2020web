@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+var input,btn,target;
+//window.addEventListener('load',function(){
+window.onload=function(){
+    btn=document.querySelector('button');
+//    btn.onclick=function(){
+//        console.log('level2 click');
+//    };
+    btn.onclick=function(){
+        console.log('레벨2 클릭');
+    };
+//    btn.addEventListener('click',function(){
+//        console.log('level3 click');
+//    });
+//    btn.addEventListener('mouseover',clck);
+    btn.addEventListener('click',clck);
+};
+    function clck(){
+//        btn.removeEventListener('click',clck);
+        console.log('레벨3 클릭');
+    }
+</script>
+</head>
+<body>
+    <h1>DOM level3</h1>
+    <input type="text"/>
+    <button>입력</button>
+    <div id="target"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

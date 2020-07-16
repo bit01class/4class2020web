@@ -17,28 +17,28 @@
     window.onload=function(){
         var target=document.querySelector('#target');
         var body=document.querySelector('body');
-//        function over(){
-//            console.log('마우스 over');
-//        }
-//        function out(){
-//            console.log('마우스 out');
-//        }
-//        target.onmouseover=over;
-//        body.onmouseover=over;
-//        target.onmouseout=out;
-//        body.onmouseout=out;
-        target.onmouseenter=function(){
-            console.log('마우스 enter');
-        };
-        body.onmouseenter=function(){
-            console.log('body enter');
-        };
-        target.onmouseleave=function(){
-            console.log('마우스 leave');
-        };
-        body.onmouseleave=function(){
-            console.log('body leave');
-        };
+        function over(){
+            console.log('마우스 over');
+        }
+        function out(){
+            console.log('마우스 out');
+        }
+        target.onmouseover=over;
+        body.onmouseover=over;
+        target.onmouseout=out;
+        body.onmouseout=out;
+//        target.onmouseenter=function(){
+//            console.log('마우스 enter');
+//        };
+//        body.onmouseenter=function(){
+//            console.log('body enter');
+//        };
+//        target.onmouseleave=function(){
+//            console.log('마우스 leave');
+//        };
+//        body.onmouseleave=function(){
+//            console.log('body leave');
+//        };
     };
 </script>
 </head>
