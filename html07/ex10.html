@@ -14,13 +14,27 @@
 </style>
 <script type="text/javascript">
 var btns;
-var form,id,pw,rg;
+var form,id,pw,rg,sel,area;
 window.onload=function(){
     form=document.querySelector('form');
     id=document.querySelector('#id');
     pw=document.querySelector('#pw');
     btns=document.querySelectorAll('button');
     rg=document.querySelector('#rg');
+    sel=document.querySelector('select');
+    area=document.querySelector('textarea');
+    area.onclick=function(){
+        area.innerText='';
+    };
+    sel.onclick=function(){
+        console.log('select click');
+        //sel.removeChild(sel.firstElementChild);
+        sel.innerHTML='<option>item1</option><option>item2</option><option>item3</option><option>item4</option>';
+    };
+    sel.onchange=function(){
+        console.log('상태변화');
+    };
+    
     rg.onchange=function(){
         console.log('상태변화',rg.value);
         rg.previousElementSibling.innerText=''+rg.value;
@@ -98,11 +112,15 @@ window.onload=function(){
         </div>
         <div>
             <select>
+                <option>선택하세요</option>
                 <option>item1</option>
                 <option>item2</option>
                 <option>item3</option>
                 <option>item4</option>
             </select>
+        </div>
+        <div>
+            <textarea>내용을 입력하세요</textarea>
         </div>
         <div>
             <button type="submit">전송</button>
