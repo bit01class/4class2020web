@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+
+    window.onload=function(){
+        var btn=document.querySelector('button');
+        btn.onclick=function(){
+            console.log('클릭');
+        };
+        btn.ondblclick=function(){
+            console.log('더블클릭');
+        };
+        btn.onmousedown=function(){
+            console.log('다운');
+        };
+        btn.onmouseup=function(){
+            console.log('업');
+        };
+    };
+    
+</script>
+</head>
+
+<body>
+    <h1>마우스 이벤트</h1>
+    <button>click</button>    
+</body>
+</html>
+
+
+
+
+
+
+
+
+

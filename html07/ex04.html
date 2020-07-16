@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+</head>
+
+<body>
+    <h1>케러셀</h1>
+    <img/>
+    <button>next</button>
+<script type="text/javascript">
+    cnt=0;
+    next();
+    var btn=document.querySelector('button');
+    btn.onclick=next;
+    function next(){
+        if(cnt++==6){
+            cnt=1;
+        }
+        var img=document.querySelector('img');
+        img.outerHTML='<img src="img/big0'+cnt+'.jpg"/>';
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

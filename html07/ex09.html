@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    img{
+        width: 50px;
+    }
+</style>
+<script type="text/javascript">
+    var car;
+window.onload=function(){
+    car=document.querySelector('img');
+    car.style.marginLeft='0px';
+    car.style.marginTop='0px';
+    window.onkeydown=function(e){
+        var limitX=window.innerWidth-50;
+        var limitY=window.innerHeight-50;
+        var x=parseInt(car.style.marginLeft);
+        var y=parseInt(car.style.marginTop);
+        if(e.keyCode==40){
+            if(y+20<=limitY)
+            car.style.marginTop=y+20+"px";
+        }else if(e.keyCode==38){
+            if(y-20<0){
+            car.style.marginTop="0px";
+            }else{
+            car.style.marginTop=y-20+"px";
+            }
+        }else if(e.keyCode==39){
+            if(x+20<=limitX)
+            car.style.marginLeft=x+20+'px';
+        }else if(e.keyCode==37){
+            if(x-20<0){
+            car.style.marginLeft='0px';   
+            }else{
+            car.style.marginLeft=x-20+'px';
+            }
+        }
+    };
+};
+</script>
+</head>
+<body>
+    <img src="img/car.jpg"/>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+var btns;
+var form,id,pw;
+window.onload=function(){
+    form=document.querySelector('form');
+    id=document.querySelector('#id');
+    pw=document.querySelector('#pw');
+    btns=document.querySelectorAll('button');
+    form.onsubmit=function(){
+        if(id.value=='') return false;
+        if(pw.value=='') return false;
+        if(pw.value.length<4) return false;
+        return true;
+    };
+};
+</script>
+</head>
+<body>
+    <h1>그밖의 이벤트</h1>
+    <form action="ex09.html">
+        <div>
+            <label for="id">id</label>
+            <input type="text" id="id"/>
+        </div>
+        <div>
+            <label for="pw">pw</label>
+            <input type="password" id="pw"/>(4자이상)
+        </div>
+        <div>
+            <label for="rg"></label>
+            <input type="range" id="rg"/>
+        </div>
+        <div>
+            <input type="radio" name="ra">item1
+            <input type="radio" name="ra" checked>item2
+            <input type="radio" name="ra">item3
+        </div>
+        <div>
+            <select>
+                <option>item1</option>
+                <option>item2</option>
+                <option>item3</option>
+                <option>item4</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">전송</button>
+            <button type="reset">취소</button>
+            <button type="button">이동</button>
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
