@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var table,xhr;
+	window.onload=function(){
+		table=document.querySelector("table");
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				var msg=xhr.responseText;
+				var obj=JSON.parse(msg);
+				var arr=obj.students;
+				var msg2="<tr><th>번호</th><th>이름</th><th>국어</th><th>영어</th><th>수학</th></tr>";
+				for(var i=0; i<arr.length; i++){
+					msg2+='<tr>';
+					msg2+='<td>'+arr[i].num+'</td>';
+					msg2+='<td>'+arr[i].name+'</td>';
+					msg2+='<td>'+arr[i].kor+'</td>';
+					msg2+='<td>'+arr[i].eng+'</td>';
+					msg2+='<td>'+arr[i].math+'</td>';
+					msg2+='</tr>';
+				}
+				table.innerHTML=msg2;
+			}
+		};
+		xhr.open('post','stu.json');
+		xhr.send();
+	};
+</script>
+</head>
+<body>
+	<h1>JSON parsing</h1>
+	<table/>
+</body>
+</html>
+
+
+
