@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var table,xhr,xml,thead;
+	window.onload=function(){
+		table=document.querySelector("table");
+		thead=table.innerHTML;
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				xml=xhr.responseXML;
+				console.log(xml.children[0].children);
+//xml.children[0].children[0].children[0].childNodes[0].nodeValue;
+				var arr=xml.children[0].children;
+				var msg='';
+				for(var i=0; i<arr.length; i++){
+					var num=arr[i].children[0].childNodes[0].nodeValue;
+					var name=arr[i].children[1].childNodes[0].nodeValue;
+					var kor=arr[i].children[2].childNodes[0].nodeValue;
+					var eng=arr[i].children[3].childNodes[0].nodeValue;
+					var math=arr[i].children[4].childNodes[0].nodeValue;
+					msg+='<tr>';
+					msg+='<td>'+num+'</td>';					
+					msg+='<td>'+name+'</td>';					
+					msg+='<td>'+kor+'</td>';					
+					msg+='<td>'+eng+'</td>';					
+					msg+='<td>'+math+'</td>';					
+					msg+='</tr>';
+				}
+				table.innerHTML=thead+msg;
+			}
+		};
+		xhr.open('get','student.jsp');
+		xhr.send();
+	};
+</script>
+</head>
+<body>
+	<h1>AJAX(Asynchronous JavaScript and XML, 에이잭스)</h1>
+	<table>
+		<tr>
+			<th>학번</th>
+			<th>이름</th>
+			<th>국어</th>
+			<th>영어</th>
+			<th>수학</th>
+		</tr>
+	</table>
+</body>
+</html>
