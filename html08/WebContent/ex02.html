@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var id,pw,form;
+	window.onload=function(){
+		form=document.querySelector('form');
+		id=document.querySelector("#id");
+		pw=document.querySelector("#pw");
+		form.onsubmit=function(){
+			var xhr=new XMLHttpRequest();
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					var msg=xhr.responseText;
+					form.innerHTML=msg;
+				}
+			}
+			xhr.open('get','ex02.jsp?id='+id.value+'&pw='+pw.value);
+			xhr.send();
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="header">
+		<h1>비트교육센터</h1>
+		<form action="ex02.jsp">
+			<input type="text" name="id" id="id">
+			<input type="text" name="pw" id="pw">
+			<button>로그인</button>
+		</form>
+	</div>
+</body>
+</html>
