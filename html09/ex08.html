@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel='stylesheet' type="text/css">
+    ul{
+        list-style: none;
+    }
+    .hid{
+        display: none;
+    }
+    .show{
+        display: block;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+var cnt=0;
+function next(){
+    if(cnt==$('img').length){
+        cnt=0;
+    } 
+//   $('ul').children().eq(cnt++).css('display','block').siblings().css('display','none');
+    $('ul').children().eq(cnt++).removeClass('hid').siblings().addClass('hid');
+    setTimeout(next,1000);
+}
+window.onload=function(){
+    
+//    $('li').addClass('hid');
+    next();
+};
+</script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li class="hid"><a href="#"><img src="img/big01.jpg" alt=""></a></li>
+            <li class="hid"><a href="#"><img src="img/big02.jpg" alt=""></a></li>
+            <li class="hid"><a href="#"><img src="img/big03.jpg" alt=""></a></li>
+            <li class="hid"><a href="#"><img src="img/big04.jpg" alt=""></a></li>
+            <li class="hid"><a href="#"><img src="img/big05.jpg" alt=""></a></li>
+            <li class="hid"><a href="#"><img src="img/big06.jpg" alt=""></a></li>
+        </ul>
+    </div>
+</body>
+</html>
