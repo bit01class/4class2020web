@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel='stylesheet' type="text/css">
+       
+    div>ul>li{
+        float: left;
+    }    
+    div>ul>li>a{}    
+    
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+var imgw=100;
+var cnt=3;
+function next(){
+    var before=parseInt($('ul').css('margin-left'));
+    console.log(before);
+    if(before==-((imgw*6)-(imgw*cnt))){
+        $('ul').css('margin-left','0px');
+    }else{        
+        $('ul').css('margin-left',before-imgw+'px');
+    }
+}
+window.onload=function(){
+    $('div').css('width', imgw*cnt+'px')
+        .css('height',imgw+'px')
+        .css('overflow','hidden');
+    $('div>ul').css('list-style','none')
+            .css('padding','0px')
+            .css('width',imgw*6+'px');
+    $('div>ul>li>a>img').css('width',imgw+'px');
+
+    window.setInterval(next,1000);
+};
+</script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="#"><img src="img/big01.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/big02.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/big03.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/big04.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/big05.jpg" alt=""></a></li>
+            <li><a href="#"><img src="img/big06.jpg" alt=""></a></li>
+        </ul>
+    </div>
+</body>
+</html>
