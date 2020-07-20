@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+//    $('p').add('h1').css('color','red');
+//    var h1=document.getElementsByTagName('h1');
+//    $('p').add(h1).css('color','blue');
+//    var h1=$('h1');
+//    $('p').add(h1).css('color','blue');
+//    $('p').each(function(idx,ele){
+////        console.log(idx,ele,this,ele===this);
+//        var clr=['red','blue','gray','yellow'];
+//        $(this).css('color',clr[idx]);
+//    });
+    
+//    var test=['a','b','c','d'];
+//    test.forEach(function(ele,idx){
+//        console.log(idx,ele,this);
+//    });
+//    $('div').children().first().parent().end().css('color','red');
+//    $('li').odd().css('color','red');
+//    $( "li" ).filter(':nth-child(3)').css( "color", "red" );
+    var content1=document.querySelector('h1+p');
+    // 자손에서 찾기
+//    $('li').find('a').css('color','red');
+//    $('li').has('a').css('color','red');
+//    console.log($('h1').is('h1'));
+//    $('h1,p').each(function(){
+//        var h1=document.querySelector('h1');
+//        console.log($(this).is('h1'),$(this)===$(h1));
+//    });
+//    $('h1,p').not('h1').css('color','red');
+//    $('h1').nextAll().css('color','red');
+//    $('p').last().prevAll().css('color','red');
+//    $('ol>li>a').parents().css('color','red');
+    $('ol>li>a').parent().siblings().css('color','red');
+};    
+</script>
+</head>
+<body>
+    <h1>traversion</h1>
+    <p><a>내용1</a></p>
+    <p>내용2</p>
+    <p>내용3</p>
+    <p>내용4</p>
+    <div>
+        <ul>
+            <li>ul1</li>
+            <li>ul2</li>
+            <li>ul3</li>
+            <li>ul4</li>
+        </ul>
+        <ol>
+            <li>ol1</li>
+            <li><a href="#">ol2</a></li>
+            <li>ol3</li>
+            <li>ol4</li>
+        </ol>
+        
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

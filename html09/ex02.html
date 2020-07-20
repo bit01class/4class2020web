@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+//    // 태그 선택자
+//    $('h1').css('color','red');
+//    $('p').css('color','blue');
+//    //클래스선택자
+//    $('.cl1').css('color','yellow');
+//    //아이디선택자
+//    $('#it2').css('color','red');
+//    $('div+ul').css('color','red');
+//    var h1=document.querySelector('h1');
+//    var p1=document.querySelector('h1+p');
+//    var p2=document.querySelector('h1+p+p');
+//    var ps=[p1,p2];
+//    var lis1=document.getElementsByTagName('li');
+//    var lis2=document.querySelectorAll('div>ul>li');
+//    $(ps).css('color','red');
+    
+//    $('div>ul>li').eq(3).css('color','red');
+//    $('div>ul>li').css('color','red').eq(0).css('background-color','yellow').next().css('background-color','blue').next().css('background-color','gray');
+    $('h1').next().next().next().children().children().first().parent().children().last().parent().parent().next().children().eq(6).children().children().eq(2).prev().css('color','red');
+}    
+</script>
+</head>
+<body>
+    <h1>선택자</h1>
+    <p>엘리먼트를 선택합니다</p>
+    <p class="cl1">css의 선택자 그대로</p>
+    <div>
+        <ul>
+            <li>item1</li>
+            <li id="it2">item2</li>
+            <li>item3</li>
+            <li id="it4">item4</li>
+        </ul>
+    </div>
+    <ul>
+        <li>item1</li>
+        <li class="cl1">item2</li>
+        <li>item3</li>
+        <li class="cl1">item4</li>
+        <li class="cl1">item5</li>
+        <li>item6</li>
+        <li>
+            <ol>
+                <li>item7-1</li>
+                <li>item7-2</li>
+                <li>item7-3</li>
+                <li>item7-4</li>
+            </ol>
+        </li>
+    </ul>
+</body>
+</html>
+
+
+
+
+
+
+
