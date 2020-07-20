@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+//    $('form>div').children().filter('label:first-child').css('display','inline-block').css('width','200px').css('background-color','gray');
+    //console.log();
+//    $('label[for="id"]').css('color','red');
+//    $(':password').css('border','5px solid red');
+//    console.log($(':password').val());
+//    console.log($(':password').css('value'));
+//    console.log($(':password').attr('value'));
+//    $('img').attr('src','img/big01.jpg');
+//    $('form').attr('action','ex01.html');
+//    console.log($('select').val());
+//    $('select').children().eq(1).attr('selected','selected');
+//    $('#ra2').attr('checked','checked');
+//    $('#ch2').attr('checked','checked');
+//    
+//    console.log($('#ra1').attr('checked'));
+//    console.log($('#ra2').attr('checked'));
+//    console.log($('#ra3').attr('checked'));
+//    console.log($('#ch1').attr('checked'));
+//    console.log($('#ch2').attr('checked'));
+//    console.log($('#ch3').attr('checked'));
+//    console.log($('select').children().eq(0).attr('selected'));
+//    console.log($('select').children().eq(1).attr('selected'));
+    //Attributes vs. Properties
+    //checked, selected, or disabled, readonly
+    $(':checkbox').each(function(){
+        this.onchange=function(){
+            console.log($(':checkbox').eq(0).prop('checked'));
+            console.log($(':checkbox').eq(1).prop('checked'));
+            console.log($(':checkbox').eq(2).prop('checked'));
+        };
+    });
+   var sel=document.querySelector('select');
+    sel.onchange=function(){
+        console.log($('select').val());
+        console.log($('select').children().eq(0).prop('selected'));
+        console.log($('select').children().eq(1).prop('selected'));
+        console.log($('select').children().eq(2).prop('selected'));
+        console.log($('select').children().eq(3).prop('selected'));
+    };
+};    
+</script>
+</head>
+<body>
+    <h1>form tag</h1>
+    <img/>
+    <form>
+       <div>
+           <label for="id">id</label>
+           <input type="text" id="id" name="id"/>
+       </div> 
+       <div>
+           <label for="pw">pw</label>
+           <input type="password" value="test" id="pw" name="pw"/>
+       </div>
+       <div>
+           <label for="ran">range</label>
+           <input type="range" min="1" max="50" value="25" id="ran" name="ran"/>
+       </div>
+       <div>
+           <input type="checkbox" id="ch1" name="ch1"/>
+           <label for="ch1">check1</label>
+           <input type="checkbox" id="ch2" name="ch2"/>
+           <label for="ch2">check2</label>
+           <input type="checkbox" id="ch3" name="ch3"/>
+           <label for="ch3">check3</label>
+       </div>
+       <div>
+           <input type="radio" checked id="ra1" name="ra"/>
+           <label for="ra1">item1</label>
+           <input type="radio" id="ra2" name="ra"/>
+           <label for="ra2">item2</label>
+           <input type="radio" id="ra3" name="ra"/>
+           <label for="ra3">item3</label>
+       </div>
+       <div>
+           <select>
+               <option>item1</option>
+               <option>item2</option>
+               <option>item3</option>
+               <option>item4</option>
+           </select>
+       </div>
+        <button>전송</button>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
