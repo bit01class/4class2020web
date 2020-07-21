@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+$(document).ready(function(){
+    $('#id,#pw').focus(function(e){
+        $(e.target).next().remove();
+    });
+    $('#id,#pw').blur(function(e){
+        if($(e.target).val()==''){
+            $('<span class="err">비었음</span>').insertAfter(e.target);
+        }else if($(e.target).val().length<4){
+            $('<span class="err">짧음</span>').insertAfter(e.target);
+        }
+    });
+    $('#id').select(function(e){
+        alert($(e.target).val().length+'자 입력됨');
+    });
+    
+    $('select').change(function(e){
+        console.log($(e.target).val());
+    });
+    $(':radio').change(function(e){
+        console.log($(e.target).next().text());
+        console.log($(e.target).attr('id'));
+    });
+    
+    $('form').submit(function(){
+        $('.err').remove();
+        if($('#id').val()==''){
+            $('<span class="err">아이디를 입력하세요</span>').insertAfter('#id');
+            $('#id').focus();
+            return false;
+        }
+        if($('#pw').val()==''){
+            $('<span class="err">패스워드를 입력하세요</span>').insertAfter('#pw');
+            $('#pw').focus();
+            return false;
+        }
+        
+        return true;
+    });
+});    
+    </script>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form action="ex01.html">
+        <div>
+            <label for="id">id</label>
+            <input type="text" id="id"/>
+        </div>
+        <div>
+            <label for="pw">pw</label>
+            <input type="password" id="pw"/>
+        </div>
+        <div>
+            <input type="radio" name="ra" id="ra1"/>
+            <label for="ra1">ra1</label>
+            <input type="radio" name="ra" id="ra2"/>
+            <label for="ra2">ra2</label>
+            <input type="radio" name="ra" id="ra3"/>
+            <label for="ra3">ra3</label>
+        </div>
+        <div>
+            <input type="checkbox" name="ch1" id="ch1"/>
+            <label for="ch1">ch1</label>
+            <input type="text" name="ch2" id="ch2"/>
+            <label for="ch2">ch2</label>
+            <input type="text" name="ch3" id="ch3"/>
+            <label for="ch3">ch3</label>
+        </div>
+        <div>
+            <select>
+                <option>item1</option>
+                <option>item2</option>
+                <option>item3</option>
+                <option>item4</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">전송</button>
+            <button type="reset">취소</button>
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

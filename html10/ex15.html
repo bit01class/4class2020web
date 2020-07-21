@@ -7,27 +7,17 @@
 	<title> Title </title>
 	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 	<script type="text/javascript">
-function func01(){
-    var first=$('ul>li').eq(0);
-    $('ul').append(first);
-}
-function func02(){
-    $('ul>li').eq(0).appendTo('ul');
-}
-window.onload=function(){
-    setInterval(func02,1000);
-};
+$(document).ready(function(){
+    $('img').wrap('<a href="#"/>');
+});    
     </script>
 </head>
 <body>
-    <h1>캐러셀</h1>
     <ul>
         <li><img src="img/big01.jpg" alt=""></li>
         <li><img src="img/big02.jpg" alt=""></li>
         <li><img src="img/big03.jpg" alt=""></li>
         <li><img src="img/big04.jpg" alt=""></li>
-        <li><img src="img/big05.jpg" alt=""></li>
-        <li><img src="img/big06.jpg" alt=""></li>
     </ul>
 </body>
 </html>
