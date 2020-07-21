@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+window.onload=function(){
+//    var ele1=$('ul').append('<li>add01</li>');
+//    var ele2=$('<li>add02</li>').appendTo('ul');
+//    $('ul').prepend('<li>add01</li>');
+//    $('<li>add02</li>').prependTo('ul');
+    $('ul').before('<p>before</p>');
+    $('<p>before To before</p>').insertBefore('ul');
+    
+    $('ul').after('<p>after</p>');
+    $('<p>before to after</p>').insertAfter('ul');
+    // api
+    var ele=$('ul>li').eq(0).remove();
+    console.log(ele);
+    $('ul').prepend(ele);
+    var ele=$('ul>li').eq(0).detach();
+    console.log(ele);
+    $('ul').prepend(ele);
+};    
+    </script>
+</head>
+
+<body>
+    <h1>append</h1>
+    <div>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+        </ul>
+    </div>
+</body>
+</html>

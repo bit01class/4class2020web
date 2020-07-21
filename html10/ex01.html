@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+window.onload=function(){
+//    var ele=document.querySelector('h1');
+//    jQuery('h1').css('color','red');
+//    jQuery(ele).css('color','red');
+//    jQuery(['a','b','c','d']).each(function(idx,val){
+//        console.log(idx,val);
+//    });
+//    var obj={'key1':'val1','key2':'val2'};
+//    jQuery(obj).each(function(idx,val){
+//        console.log('key:'+idx,'val:'+val,val===obj );
+//    });  
+//    jQuery(function(){
+//        console.log('run....');
+//    });
+    var msg=jQuery('h2');
+    console.log(msg.text());
+    // string -> css선택자, 태그
+    var ele2=jQuery('<h2>msg</h2>');
+    
+    var ele3=document.createElement('h2');
+    ele3.appendChild(document.createTextNode('msg'));
+    ele2.each(function(){
+        console.log($(this).text(),msg.text());
+    });
+    ele2.text('수정');
+    ele2.each(function(){
+        console.log($(this).text(),msg.text());
+    });
+    
+};    
+    </script>
+</head>
+<body>
+    <h1>제이쿼리</h1>
+    <h2>test</h2>
+</body>
+</html>
+
+
+
+
+
+

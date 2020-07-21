@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<style rel="stylesheet" type="text/css">
+        #target02 ul{
+            list-style: none;
+            padding: 0px;
+        }
+        #target02 ul>li{
+            float: left;
+        }
+        #target02 img{
+            width: 200px;
+        }
+    </style>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+var cnt=0;
+function func01(){
+    if(cnt++==6)cnt=1;
+    var ele=$('<img/>').attr('src','img/big0'+cnt+'.jpg');
+    $('#target01').html(ele);
+//    $('#target01').html('<img src="img/big0'+cnt+'.jpg"/>');
+    setTimeout(func01,1000);
+}
+function func02(){
+    var first=$('ul>li').eq(0);
+    var temp=$('<div></div>').html(first);
+    console.log($('ul').html()+temp.html());
+    $('ul').html($('ul').html()+temp.html());
+    setTimeout(func02,1000);
+}
+window.onload=function(){
+    func01();
+    setTimeout(func02,1000);
+};    
+    </script>
+</head>
+<body>
+    <h1>캐러셀</h1>
+    <div id="target01"></div>
+    <div id="target02">
+        <ul>
+            <li><img src="img/big01.jpg"/></li>
+            <li><img src="img/big02.jpg"/></li>
+            <li><img src="img/big03.jpg"/></li>
+            <li><img src="img/big04.jpg"/></li>
+            <li><img src="img/big05.jpg"/></li>
+            <li><img src="img/big06.jpg"/></li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

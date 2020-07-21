@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+window.onload=function(){
+    console.log($('h1').css(['color','background-color']));
+    $('li').css('background-color',function(idx){
+        return 'rgb('+idx*50+','+idx*50+','+idx*50+')';
+//        return 'rgb('+idx*50+',0,0)';
+//        return 'rgb(0,'+idx*50+',0)';
+//        return 'rgb(0,0,'+idx*50+')';
+    });
+    $('h1').css({'color':'red','background-color':'gray'});
+};    
+    </script>
+</head>
+
+<body>
+    <h1>css메서드</h1>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+        <li>item6</li>
+    </ul>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+    <style rel="stylesheet" type="text/css">
+        .size100{
+            width: 100px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+window.onload=function(){
+//    $('img').attr('src','img/big01.jpg');
+//    $('img').attr({'src':'img/big02.jpg'});
+    $('img').attr('src',function(idx){
+        return 'img/big0'+(idx+1)+'.jpg';
+    });
+    $('a').attr('href','ex01.html');
+//    console.log($('input').attr('value'));
+    
+    $('input').val('12345678');
+    console.log($('input').val());
+    // checked, selected, readonly etc...
+    console.log($('input').prop('readonly'));
+    // class
+    $('img').addClass('size100');
+    $('img').removeClass('size100');
+    
+};    
+    </script>
+</head>
+<body>
+    <h1>attr method</h1>
+    <input type="text" value="abcd" readonly/>
+    <p>내용</p>
+    <a href="#">link</a>
+    <img/>
+    <img/>
+    <img/>
+    <img/>
+    <img/>
+    <img/>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

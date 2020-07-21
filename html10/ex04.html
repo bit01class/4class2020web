@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+    <style rel='stylesheet' type="text/css">
+        h1+div{
+            background-color: gray;
+            height: 200px;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+window.onload=function(){
+    console.log($('ul').text());
+    console.log($('ul').html());
+//    $('ul').html('<li>add1</li>');
+//    $('ul').html('<li>add2</li>');
+//    $('ul').text('<li>add2</li>');
+    var ul=document.querySelector('ul');
+    var lis=document.querySelectorAll('li');
+    //$(ul).html('<li>edit</li>');
+//    $('ol').html(lis);
+    var q=$('li').filter(':odd');
+    $('ol').html(q);
+};    
+    </script>
+</head>
+<body>
+    <h1>text and html</h1>
+    <div>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+        </ul>
+    </div>
+    <ol></ol>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
