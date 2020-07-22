@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.min.css"/>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+	<script type="text/javascript">
+$(document).ready(function(){
+    $('.slider').bxSlider({
+    'slideWidth': 320
+    ,'minSlides':2
+    ,'maxSlides':3
+    ,'moveSlides':1
+    ,'mode':'horizontal'
+    ,'speed':3000
+//    ,'startSlide':4
+//    ,'randomStart':true
+//    ,'captions':true
+    ,'auto':true
+//    ,'pause':1000
+//    ,'autoHover':true
+//    ,'controls':false
+//    ,'nextText':'다음'
+//    , 'auto': true
+//    ,'autoControls':true
+//        ,'pager':false
+     ,'onSliderLoad': function(idx){
+         console.log('bx loading...'+idx);
+     }
+    ,'onSliderResize':function(idx){
+        console.log('resizing...'+idx);
+    }
+    ,'onSlideNext':function(ele,b,a){
+        console.log('next...',b,a,ele.html());
+    }
+    ,'onSlideAfter':function(ele,b,a){
+        console.log('after...',b,a,ele.html());
+    }
+    ,'onSlideBefore':function(ele,b,a){
+        console.log('before...',b,a,ele.html());
+    }
+  });
+});    
+    </script>
+</head>
+<body>
+    <div class="slider">
+        <div><img src="img/big01.jpg" title='big1'/></div>
+        <div><img src="img/big02.jpg" title='big2'/></div>
+        <div><img src="img/big03.jpg" title='big3'/></div>
+        <div><img src="img/big04.jpg" title='big4'/></div>
+        <div><img src="img/big05.jpg" title='big5'/></div>
+        <div><img src="img/big06.jpg" title='big6'/></div>
+    </div>
+</body>
+</html>
+
+
+
+
+

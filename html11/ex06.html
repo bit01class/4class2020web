@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<style rel="stylesheet" type="text/css">
+        div{
+            width: 200px;
+            background-color: aqua;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+ $(document).ready(function(){
+     $('button').eq(0).click(function(){
+//         $('div').hide('slow');
+//         $('div').hide('fast');
+//         $('div').slideUp('slow');
+//         $('div').fadeOut('slow');
+         $('div').slideUp(3000,callbak);
+//            $('div').fadeTo(3000,0.2);
+     });
+     $('button').eq(1).click(function(){
+//         $('div').show('slow');
+//         $('div').show('fast');
+//         $('div').slideDown('slow');
+//         $('div').fadeIn('slow');
+         $('div').slideDown(3000,function(){
+             $('button').eq(0).click();
+         });
+//            $('div').fadeTo(3000,0.7);
+     });
+     $('button').eq(2).click(function(){
+//         $('div').toggle(1000,callbak);
+//         $('div').slideToggle(1000);
+         $('div').fadeToggle(1000);
+     });
+ });
+function callbak(){
+    alert('끝');
+}
+    </script>
+</head>
+
+<body>
+    <h1>animation</h1>
+    <button>hide</button>
+    <button>show</button>
+    <button>toggle</button>
+    <div>
+       설산에서 수 보는 능히 없는 인생에 있는가? 실현에 기관과 그들의 방지하는 가치를 가지에 소리다.이것은 뭇 돋고, 봄바람이다. 못하다 열락의 너의 우는 그들에게 찬미를 것이다. 때까지 온갖 위하여서 것이다. 얼음과 대고, 낙원을 싹이 작고 위하여서, 붙잡아 것은 품에 운다. 무엇이 하여도 그들은 이것이다. 가슴이 자신과 사랑의 밥을 고동을 이것은 불러 이것이다. 대한 그들은 노래하며 원대하고, 품었기 되려니와, 청춘에서만 생생하며, 우리의 위하여서. 가치를 고행을 하는 목숨을 얼음에 생생하며, 두손을 기관과 힘있다. 낙원을 청춘의 커다란 그들을 커다란 구하지 이것이다. 실로 얼음이 방지하는 위하여서 그리하였는가?
+
+인생을 넣는 거선의 그림자는 가장 것이다. 사랑의 아니더면, 어디 약동하다. 풀이 길지 이것이야말로 인간에 같으며, 대고, 것이다. 별과 만천하의 희망의 피고, 철환하였는가? 살 이 원대하고, 가치를 때에, 우리 쓸쓸한 풀이 부패뿐이다. 굳세게 기관과 몸이 것이다. 방황하여도, 할지니, 커다란 풀이 열락의 얼음 산야에 그리하였는가? 듣기만 가치를 못할 쓸쓸하랴? 원질이 이것을 몸이 끓는다. 이상 되는 내는 미묘한 불러 때까지 온갖 철환하였는가?
+
+할지라도 피고, 얼음에 봄바람이다. 천고에 과실이 생생하며, 보이는 우리 그들의 이상이 피가 칼이다. 무엇을 천자만홍이 천고에 그들의 구하기 아니다. 청춘 그림자는 설레는 불어 이것이다. 되는 때까지 능히 넣는 품으며, 과실이 그들은 봄바람이다. 꾸며 같으며, 일월과 날카로우나 피는 두기 그림자는 오아이스도 아니더면, 사막이다. 얼음이 뜨고, 것은 사랑의 고행을 수 같이 불러 보라. 것이다.보라, 안고, 노래하며 관현악이며, 주며, 길지 부패를 황금시대를 따뜻한 사막이다. 만물은 인생의 봄바람을 동산에는 우는 두손을 곳이 어디 교향악이다. 희망의 두기 위하여, 것이다. 
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

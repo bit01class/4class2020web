@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<style rel="stylesheet" type="text/css">
+        #target{
+            width: 300px;
+            height: 300px;
+            background-color: gray;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+    
+//    var a=document.querySelector('a');
+//    // DOM Level2
+//    a.onclick=function(){return false;};
+//    // DOM Level3
+//    a.addEventListener('click',function(e){
+//        e.preventDefault();
+//    });
+    
+    $('a').on('click',function(e){
+        e.preventDefault();// 엘리먼트갖는고유기능취소
+        console.log('클릭');
+    });
+    $('a').click(function(){
+        console.log('click메서드 a');
+        return false;
+    });
+    $('#target').click(function(){
+        console.log('또다른click메서드');
+    });
+});    
+    </script>
+</head>
+<body>
+    <h1>이벤트 바인딩</h1>
+    <a href="https://naver.com">link</a>
+    <div id="target"></div>
+</body>
+</html>
+
+
+
+
+
+

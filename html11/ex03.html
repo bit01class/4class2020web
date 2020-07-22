@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<style rel='stylesheet' type="text/css">
+        #target{
+            width: 500px;
+            height: 400px;
+            background-color: gray;
+        }
+        div+div{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            /*margin: auto;*/
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+    // 1.4.3~
+//    $(document).delegate('div','click',function(){
+//        $(this).after('<div/>').css('background-color','white');
+//    });
+    // jQuery 1.7+
+    $(document).on('click','div',function(){
+        $(this).after('<div/>').css('background-color','white');
+    });
+});    
+    </script>
+</head>
+
+<body>
+    <h1>이벤트 바인딩</h1>
+    <div id="target"></div>
+</body>
+</html>
+
+
+
+
+
+
+

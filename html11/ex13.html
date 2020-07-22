@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<style rel="stylesheet" type="text/css">
+        .slider{}
+        .slider+span{
+            position: relative;
+            background-color: aqua;
+            top:0px;
+        }
+    </style>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+	<script type="text/javascript">
+var bx;
+$(document).ready(function(){
+    bx=$('.slider').bxSlider({'pager':false,'controls':false});
+    $('<a/>').insertAfter('.bx-wrapper').text('다음').click(
+    function(){
+        bx.goToNextSlide();
+    });
+    $('<a/>').insertAfter('.bx-wrapper').text('이전').click(
+    function(){
+        bx.goToPrevSlide();
+    });
+});    
+    </script>
+</head>
+<body>
+    <div class="slider">
+        <div><img src="img/big01.jpg" title='big1'/></div>
+        <div><img src="img/big02.jpg" title='big2'/></div>
+        <div><img src="img/big03.jpg" title='big3'/></div>
+        <div><img src="img/big04.jpg" title='big4'/></div>
+        <div><img src="img/big05.jpg" title='big5'/></div>
+        <div><img src="img/big06.jpg" title='big6'/></div>
+    </div>
+</body>
+</html>

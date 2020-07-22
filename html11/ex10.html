@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<style rel="stylesheet" type="text/css">
+        div{
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+    $('div')
+        .animate({'margin-left':'300px'},3000)
+        .delay(1000)
+        .animate({'margin-top':'300px'},3000)
+        .animate({'margin-left':'0px'},3000)
+        .animate({'margin-top':'0px'},3000);
+    $('button').click(function(){
+        console.log($('div').queue().length);
+        //$('div').finish();
+//        while($('div').queue().length){
+//            $('div').stop();
+//        }
+        //$('div').clearQueue().stop();
+        $('div').dequeue();
+        console.log($('div').queue().length);
+    });
+    console.log('end');
+});    
+    </script>
+</head>
+<body>
+    <h1>동작제어</h1>
+    <button>skip</button>
+    <div>box</div>
+</body>
+</html>
+
+
+
+
+
+
+

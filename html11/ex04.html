@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+$(document).ready(function(){
+    var callback=function(){
+        alert('이벤트 호출');
+    };
+    $('button').eq(0).on('mouseover',function(){
+        console.log('마우스 오버');
+    });
+    $('button').eq(0).on('click',callback);
+    $('button').eq(0).on('click',function(){
+        console.log('이벤트호출');
+    });
+    $('button').eq(1).on('click',function(){
+        $('button').eq(0).off();
+    });
+    $('button').eq(2).one('click',function(){
+        console.log('클릭');
+    });
+});    
+    </script>
+</head>
+<body>
+    <button>btn</button>    
+    <button>off</button>    
+    <button>one</button>    
+</body>
+</html>
+
+
+
+
+
+
+
+

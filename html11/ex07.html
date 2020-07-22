@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<style rel="stylesheet" type="text/css">
+        ul{
+            margin: 0px auto;
+            width: 400px;
+            height: 50px;
+            padding: 0px;
+            list-style: none;
+        } 
+        ul>li{
+            float: left;
+            width: 100px;
+            height: 50px;
+            background-color: gray;
+            line-height: 50px;
+        } 
+        ul>li>ol{
+            list-style: none;
+            width: 100px;
+            padding: 0px;
+        } 
+        ul>li>ol>li{
+            width: 100px;
+            height: 50px;
+            background-color: darkgray;
+        } 
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+    $('#menu>ul ol').hide();
+    
+    $('ul>li').mouseenter(function(){
+        $(this).find('ol').stop().slideDown(1000);
+    }).mouseleave(function(){
+        $(this).find('ol').stop().slideUp(1000);
+    });
+});    
+    </script>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li>item1
+                <ol>
+                    <li>item1-1</li>
+                    <li>item1-2</li>
+                    <li>item1-3</li>
+                    <li>item1-4</li>
+                </ol>
+            </li>
+            <li>item2
+                <ol>
+                    <li>item2-1</li>
+                    <li>item2-2</li>
+                    <li>item2-3</li>
+                    <li>item2-4</li>
+                </ol>
+            </li>
+            <li>item3
+                <ol>
+                    <li>item3-1</li>
+                    <li>item3-2</li>
+                    <li>item3-3</li>
+                    <li>item3-4</li>
+                </ol>
+            </li>
+            <li>item4
+                <ol>
+                    <li>item4-1</li>
+                    <li>item4-2</li>
+                    <li>item4-3</li>
+                    <li>item4-4</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
