@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/* img{
+		width: 50px;
+	} */
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//$('#target').load('ex01.jsp','name=thumb&cnt=4',function(){
+		$('#target').load('ex01.jsp',{'cnt':3,'name':'big'},function(){
+			//$('img').css('width','100px');
+		});
+
+		
+		$('button').click(plus);
+	});
+	function plus(){
+
+		$('img').css('width','100px');
+	}
+</script>
+</head>
+<body>
+	<h1>jquery통신</h1>
+	<div id="target"></div>
+	<p>target에 파일내용을 불러오겠습니다.</p>
+	<button>+</button>
+</body>
+</html>
