@@ -1,0 +1,25 @@
+#header{
+	overflow: hidden;
+}
+#header>h1{
+	width: 213px;
+	height: 61px;
+	text-indent: -9999px;
+	background-image: url("../img/logo.png");
+}
+#header>form{
+	width: 400px;
+	float: right;
+}
+#header>form>div{
+	display:inline-block;
+	width: 190px;
+}
+#header>form>div>label{
+	display:inline-block;
+	width: 50px;
+}
+#header>form>div>input{
+	width: 100px;
+}
+#header>form>div>button{}

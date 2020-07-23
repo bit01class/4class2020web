@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/header.css" />
+<title>Insert title here</title>
+<style rel="stylesheet" type="text/css">
+	#menu{
+		background-color: gray;
+		height: 50px;
+	}
+	#menu>ul{
+		list-style: none;
+		width :400px;
+		margin:0px auto;
+		padding: 0px;
+	}
+	#menu>ul>li{
+		float:left;
+		width: 100px;
+		height: 50px;
+		line-height: 50px;
+	}
+	#menu>ul>li>a{
+		text-align:center;
+		display: block;
+		background-color: gray;
+	}
+	#menu>ul>li>ol{
+		display:none;
+		list-style:none;
+		margin:0px;
+		padding: 0px;
+	}
+	#menu>ul>li>ol>li{}
+	#menu>ul>li>ol>li>a{
+		text-align:center;
+		display: block;
+		background-color: gray;
+	}
+	#footer{
+		background-color: gray;
+	}
+	#footer>div{
+		width: 300px;
+		margin: 50px auto;
+	}
+</style>
+</head>
+<body>
+	<div>
+		<div id="header">
+			<h1>비트교육센터</h1>
+			<form>
+				<div>
+					<label for="id">id</label>
+					<input type="text" id="id"/>
+				</div>
+				<div>
+					<label for="pw">pw</label>
+					<input type="password" id="pw"/>
+				</div>
+				<div>
+					<button type="submit">로그인</button>
+					<button type="button">회원가입</button>
+				</div>
+			</form>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="#">HOME</a></li>
+				<li><a href="#">INTRO</a></li>
+				<li>
+					<a href="#">B B S</a>
+					<ol>
+						<li><a href="#">E M P</a></li>
+						<li><a href="#">DEPT</a></li>
+					</ol>
+				</li>
+				<li><a href="#">E T C</a></li>
+			</ul>
+		</div>
+		<div id="content">
+		
+		
+		</div>
+		<div id="footer">
+			<div>
+			<address>비트캠프 서울시 서초구 강남대로 459</address>
+			(주)비트컴퓨터 서초본원<br/>
+			Copyright &copy; 비트캠프 All rights reserved.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
