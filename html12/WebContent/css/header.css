@@ -1,5 +1,4 @@
 #header{
-	overflow: hidden;
 }
 #header>h1{
 	width: 213px;
@@ -8,16 +7,18 @@
 	background-image: url("../img/logo.png");
 }
 #header>form{
-	width: 600px;
+	top:-100px;
+	position:relative;
+	width: 480px;
 	float: right;
 }
 #header>form>div{
 	display:inline-block;
-	width: 190px;
+	width: 150px;
 }
 #header>form>div>label{
 	display:inline-block;
-	width: 50px;
+	width: 20px;
 }
 #header>form>div>input{
 	width: 100px;

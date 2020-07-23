@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		$.get('deptlist.bit',function(data){
+			data.students.forEach(function(ele,idx){
+				$('table').append('<tr><td>'+ele.deptno
+						+'</td><td>'+ele.dname
+						+'</td><td>'+ele.loc
+						+'</td></tr>');
+			});
+		});
+	});
+
+</script>
+</head>
+<body>
+	<h1>dept list</h1>
+	<table>
+		<tr>
+			<th>detpno</th>
+			<th>dname</th>
+			<th>loc</th>
+		</tr>
+	</table>
+</body>
+</html>

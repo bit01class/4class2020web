@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table{
+		border-collapse: collapse;
+	}
+	table,th,td{
+		border: 1px solid gray;
+	}
+	th{
+		width: 100px;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.get('ex04.bit',function(data){
+		console.log(data.childNodes);
+		$(data).find('student').each(function(){
+			var num=$(this).find('num').text();
+			var name=$(this).find('name').text();
+			var kor=$(this).find('kor').text();
+			var eng=$(this).find('eng').text();
+			var math=$(this).find('math').text();
+			
+			$('table').append('<tr><td>'+num
+								+'</td><td>'+name
+								+'</td><td>'+kor
+								+'</td><td>'+eng
+								+'</td><td>'+math+'</td></tr>');
+			/* 
+			$('<tr/>').append($('<td/>').text($(this).find('num').text()))
+					.append($('<td/>').text($(this).find('name').text()))
+					.append($('<td/>').text($(this).find('kor').text()))
+					.append($('<td/>').text($(this).find('eng').text()))
+					.append($('<td/>').text($(this).find('math').text()))
+					.appendTo('table');
+			 */
+		});
+	});
+//	$('button').click(function (){
+//		$.post('ex04.bit','id='+$(this).prev().val(),function(data){
+//			$('p').text(data);
+//		});		
+//	});
+});
+</script>
+</head>
+<body>
+	<h1>result</h1>
+	<input type="text"/><button>전송</button>
+	<table>
+		<tr>
+			<th>학번</th>
+			<th>이름</th>
+			<th>국어</th>
+			<th>영어</th>
+			<th>수학</th>
+		</tr>
+	</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

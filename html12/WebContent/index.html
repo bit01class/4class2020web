@@ -74,17 +74,42 @@
 	#car img{
 		z-index: 2;
 	}
+	#content table,#content th,#content td{
+		border-collapse: collapse;
+		border:1px solid gray;
+	}
+	#content table{
+		width:500px;
+		margin:0px auto;
+	}
+	#content table>tr{}
+	#content table>tr>th{}
+	#content table>tr>td{}
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
 <script type="text/javascript">
-var big;
+var big,menu1,menu2,menu3,menu4;
+var mn3_1,mn3_2;
 $(document).ready(function(){
-	$('#menu>ul>li>ol').slideUp();
-	$('#menu>ul>li').on('mouseenter',function(){
-		$('#menu>ul>li>ol').stop().slideDown();
+	menu3=$('#menu>ul>li').eq(2);
+	mn3_1=menu3.find('a').eq(1);
+	mn3_2=menu3.find('a').eq(2);
+	mn3_1.click(function(){
+		$('#content').html('<h1>EMP list</h1>');
+		return false;
 	});
-	$('#menu>ul>li').on('mouseleave',function(){
+	mn3_2.click(function(){
+		$('#content').slideUp();
+		$('#content').html('<h1>dept list</h1><table><tr><th>detpno</th><th>dname</th><th>loc</th></tr></table>');
+		getDeptList();
+		return false;
+	});
+	
+	$('#menu>ul>li>ol').slideUp();
+	$('#menu>ul>li').eq(2).on('mouseenter',function(){
+		$('#menu>ul>li>ol').stop().slideDown();
+	}).on('mouseleave',function(){
 		$('#menu>ul>li>ol').stop().slideUp();
 	});
 	big=$('#big>ul').bxSlider({
@@ -104,6 +129,18 @@ $(document).ready(function(){
 		}
 	});
 });
+
+function getDeptList(){
+	$.get('deptlist.bit',function(data){
+		data.students.forEach(function(ele,idx){
+			$('table').append('<tr><td>'+ele.deptno
+					+'</td><td>'+ele.dname
+					+'</td><td>'+ele.loc
+					+'</td></tr>');
+			$('#content').slideDown();
+		});
+	});
+}
 
 </script>
 </head>
