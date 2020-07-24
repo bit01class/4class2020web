@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('<tr/>').append('<th>empno</th>')
+				.append('<th>ename</th>')
+				.append('<th>job</th>')
+				.append('<th>deptno</th>')
+				.appendTo('table');
+	$.get('emplist.bit',function(data){
+		$(data).find('emp').each(function(){
+			$('<tr/>').append('<td>'+$(this).children().eq(0).text()+'</td>')
+				.append('<td>'+$(this).children().eq(1).text()+'</td>')
+				.append('<td>'+$(this).children().eq(2).text()+'</td>')
+				.append('<td>'+$(this).children().eq(3).text()+'</td>')
+				.appendTo('table');
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<h1>Emp List</h1>
+	<table/>
+</body>
+</html>

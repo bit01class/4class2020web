@@ -12,6 +12,14 @@
   	<servlet-name>deptlistJson</servlet-name>
   	<servlet-class>com.bit.service.Dept</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>empListXml</servlet-name>
+  	<servlet-class>com.bit.service.EmpList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>empListXml</servlet-name>
+  	<url-pattern>/emplist.bit</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>deptlistJson</servlet-name>
   	<url-pattern>/deptlist.bit</url-pattern>

@@ -85,6 +85,59 @@
 	#content table>tr{}
 	#content table>tr>th{}
 	#content table>tr>td{}
+	#content table+a{
+		display:inline-block;
+		margin:50px auto 50px auto;
+		width: 200px;
+		height: 50px;
+		background-color: green;
+		border-radius:25px;
+		color: white;
+		text-align: center;
+		line-height: 50px;
+		text-decoration: none;
+	}
+	#empForm{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(100,100,100,0.5);
+	}
+	#empForm>h2{
+		margin:200px auto 0px auto;
+		padding:50px;
+		width: 500px;
+		background-color: white;
+		text-align: center;
+	}
+	#empForm>form{
+		padding:0px;
+		background-color:white;
+		margin:0px auto;
+		width: 600px;
+		height: 300px;
+	}
+	#empForm>form>div{
+		width: 600px;
+		margin-bottom: 30px;
+	}
+	#empForm>form>div>label{
+		display:inline-block;
+		width: 200px;
+		text-align: right;
+	}
+	#empForm>form>div>input{
+		width: 300px;
+	}
+	#empForm>form>div:nth-child(4),
+	#empForm>form>div:nth-child(5){
+		text-align: center;
+	}
+	#empForm>form>div>button{
+		width: 200px;
+	}
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
@@ -92,17 +145,41 @@
 var big,menu1,menu2,menu3,menu4;
 var mn3_1,mn3_2;
 $(document).ready(function(){
+	
 	menu3=$('#menu>ul>li').eq(2);
 	mn3_1=menu3.find('a').eq(1);
 	mn3_2=menu3.find('a').eq(2);
 	mn3_1.click(function(){
-		$('#content').html('<h1>EMP list</h1>');
+		$('#content').slideUp(1000,function(){
+			$('#content').delay(100).slideDown(1000);
+			$('#content').html('<h1>EMP list</h1><table/><a href="#">입력</a>');
+			$('<tr/>').append('<th>empno</th>')
+					.append('<th>ename</th>')
+					.append('<th>job</th>')
+					.append('<th>deptno</th>')
+					.appendTo('table');
+			$.get('emplist.bit',function(data){
+				$(data).find('emp').each(function(){
+					$('<tr/>').append('<td>'+$(this).children().eq(0).text()+'</td>')
+						.append('<td>'+$(this).children().eq(1).text()+'</td>')
+						.append('<td>'+$(this).children().eq(2).text()+'</td>')
+						.append('<td>'+$(this).children().eq(3).text()+'</td>')
+						.appendTo('table');
+				});
+			});	
+			
+			$('#content a').click(function(){
+				alert('입력');
+				return false;
+			});
+		});
 		return false;
 	});
 	mn3_2.click(function(){
-		$('#content').slideUp();
-		$('#content').html('<h1>dept list</h1><table><tr><th>detpno</th><th>dname</th><th>loc</th></tr></table>');
-		getDeptList();
+		$('#content').slideUp(function(){
+			$('#content').html('<h1>dept list</h1><table><tr><th>detpno</th><th>dname</th><th>loc</th></tr></table><a href="#">입력</a>');
+			getDeptList();			
+		});
 		return false;
 	});
 	
@@ -137,7 +214,7 @@ function getDeptList(){
 					+'</td><td>'+ele.dname
 					+'</td><td>'+ele.loc
 					+'</td></tr>');
-			$('#content').slideDown();
+			$('#content').delay(100).slideDown();
 		});
 	});
 }
@@ -210,8 +287,44 @@ function getDeptList(){
 			</div>
 		</div>
 	</div>
+	<div id="empForm">
+		<h2>입력페이지</h2>
+		<form>
+			<div>
+				<label for="empno">empno</label>
+				<input type="text" id="empno" name="empno" />
+			</div>
+			<div>
+				<label for="ename">ename</label>
+				<input type="text" id="ename" name="ename" />
+			</div>
+			<div>
+				<label for="job">job</label>
+				<input type="text" id="job" name="job" />
+			</div>
+			<div>
+				<select name="deptno">
+					<option value="10">accounting</option>
+					<option value="20">research</option>
+					<option value="30">sales</option>
+					<option value="40">operations</option>
+				</select>
+			</div>
+			<div>
+				<button type="submit">입력</button>
+				<button type="reset">취소</button>
+			</div>
+		</form>
+	</div>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
