@@ -149,6 +149,7 @@ $(document).ready(function(){
 		console.log( $( this ).serialize() );
 		$.post('empadd.bit',$( this ).serialize(),function(){
 			$('#empForm').click();
+			empList();
 		});
 		return false;
 	});
@@ -165,26 +166,7 @@ $(document).ready(function(){
 	mn3_1.click(function(){
 		$('#content').slideUp(1000,function(){
 			$('#content').delay(100).slideDown(1000);
-			$('#content').html('<h1>EMP list</h1><table/><a href="#">입력</a>');
-			$('<tr/>').append('<th>empno</th>')
-					.append('<th>ename</th>')
-					.append('<th>job</th>')
-					.append('<th>deptno</th>')
-					.appendTo('table');
-			$.get('emplist.bit',function(data){
-				$(data).find('emp').each(function(){
-					$('<tr/>').append('<td>'+$(this).children().eq(0).text()+'</td>')
-						.append('<td>'+$(this).children().eq(1).text()+'</td>')
-						.append('<td>'+$(this).children().eq(2).text()+'</td>')
-						.append('<td>'+$(this).children().eq(3).text()+'</td>')
-						.appendTo('table');
-				});
-			});	
-			
-			$('#content a').click(function(){
-				$('#empForm').show();
-				return false;
-			});
+			empList();
 		});
 		return false;
 	});
@@ -229,6 +211,29 @@ function getDeptList(){
 					+'</td></tr>');
 			$('#content').delay(100).slideDown();
 		});
+	});
+}
+
+function empList(){
+	$('#content').html('<h1>EMP list</h1><table/><a href="#">입력</a>');
+	$('<tr/>').append('<th>empno</th>')
+			.append('<th>ename</th>')
+			.append('<th>job</th>')
+			.append('<th>deptno</th>')
+			.appendTo('table');
+	$.get('emplist.bit',function(data){
+		$(data).find('emp').each(function(){
+			$('<tr/>').append('<td>'+$(this).children().eq(0).text()+'</td>')
+				.append('<td>'+$(this).children().eq(1).text()+'</td>')
+				.append('<td>'+$(this).children().eq(2).text()+'</td>')
+				.append('<td>'+$(this).children().eq(3).text()+'</td>')
+				.appendTo('table');
+		});
+	});	
+	
+	$('#content a').click(function(){
+		$('#empForm').show();
+		return false;
 	});
 }
 
