@@ -131,8 +131,17 @@
 	#empForm>form>div>input{
 		width: 300px;
 	}
+	#empForm>form>div:last-child{
+		text-align: center;
+	}
 	#empForm>form>div>button{
 		width: 200px;
+		margin-bottom: 100px;
+	}
+	#empForm>form>div>label+span{
+		display:inline-block;
+		text-align:center;
+		width: 300px;
 	}
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
@@ -143,32 +152,57 @@ var mn3_1,mn3_2;
 $(document).ready(function(){
 	
 	$(document).on('click','#content>table tr',function(){
-		var param='idx='+$(this).children().first().text();
-		console.log(param);
-		$.get('empdetail.bit',param,function(data){
-			editshow();
-			$('#empForm').show();
-			$('#empno').val($(data).find('empno').text());
-			$('#ename').val($(data).find('ename').text());
-			$('#job').val($(data).find('job').text());
-			$('#hiredate').val($(data).find('hiredate').text());
-			$('#comm').val($(data).find('comm').text());
-			$('#sal').val($(data).find('sal').text());
-			$('#mgr').val($(data).find('mgr').text());
-			$('#deptno').children().each(function(){
-				if($(this).val()==$(data).find('deptno').text()){
-					$(this).prop('selected',true);
-				}
+		
+		if($(this).parent().parent().prev().text()=="dept list"){
+			alert('dept');
+		}
+		if($(this).parent().parent().prev().text()=="EMP list"){
+			$('.detail').remove();
+			var param='idx='+$(this).children().first().text();
+			console.log(param);
+			$.get('empdetail.bit',param,function(data){
+				editshow();
+				$('#empForm').show();
+				$('#empno').val($(data).find('empno').text());
+				$('#ename').val($(data).find('ename').text());
+				$('#job').val($(data).find('job').text());
+				$('#hiredate').val($(data).find('hiredate').text());
+				$('#comm').val($(data).find('comm').text());
+				$('#sal').val($(data).find('sal').text());
+				$('#mgr').val($(data).find('mgr').text());
+				$('#deptno').children().each(function(){
+					if($(this).val()==$(data).find('deptno').text()){
+						$(this).prop('selected',true);
+					}
+				});
+				
+				$('#empForm>form>div>label').each(function(){
+					$(this).next().hide();
+					var msg=$(this).next().val();
+					$(this).after('<span class="detail">'+msg+'</span>');
+				});
 			});
-		});
+		}
 	});
 	
 	$('#empForm>form').submit(function(){
 		console.log( $( this ).serialize() );
-		$.post('empadd.bit',$( this ).serialize(),function(){
+		if($(this).prev().text()=='입력페이지'){
+			$.post('empadd.bit',$( this ).serialize(),function(){
+				$('#empForm').click();
+				empList();
+			});
+		}else if($(this).prev().text()=='상세페이지'){
+			$('.detail').remove();
+			$(this).prev().text('수정페이지');
+			$(this).find('label').next().show();
+		}else if($(this).prev().text()=='수정페이지'){
+			console.log('수정완료');
+			// 수정기능
+			//$.post('수정서블릿','쿼리스트링',function(){});
 			$('#empForm').click();
 			empList();
-		});
+		}
 		return false;
 	});
 	$('#empForm').hide().click(function(e){
