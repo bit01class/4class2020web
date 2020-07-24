@@ -117,7 +117,7 @@
 		background-color:white;
 		margin:0px auto;
 		width: 600px;
-		height: 300px;
+		
 	}
 	#empForm>form>div{
 		width: 600px;
@@ -131,10 +131,6 @@
 	#empForm>form>div>input{
 		width: 300px;
 	}
-	#empForm>form>div:nth-child(4),
-	#empForm>form>div:nth-child(5){
-		text-align: center;
-	}
 	#empForm>form>div>button{
 		width: 200px;
 	}
@@ -145,6 +141,28 @@
 var big,menu1,menu2,menu3,menu4;
 var mn3_1,mn3_2;
 $(document).ready(function(){
+	
+	$(document).on('click','#content>table tr',function(){
+		var param='idx='+$(this).children().first().text();
+		console.log(param);
+		$.get('empdetail.bit',param,function(data){
+			editshow();
+			$('#empForm').show();
+			$('#empno').val($(data).find('empno').text());
+			$('#ename').val($(data).find('ename').text());
+			$('#job').val($(data).find('job').text());
+			$('#hiredate').val($(data).find('hiredate').text());
+			$('#comm').val($(data).find('comm').text());
+			$('#sal').val($(data).find('sal').text());
+			$('#mgr').val($(data).find('mgr').text());
+			$('#deptno').children().each(function(){
+				if($(this).val()==$(data).find('deptno').text()){
+					$(this).prop('selected',true);
+				}
+			});
+		});
+	});
+	
 	$('#empForm>form').submit(function(){
 		console.log( $( this ).serialize() );
 		$.post('empadd.bit',$( this ).serialize(),function(){
@@ -230,11 +248,26 @@ function empList(){
 				.appendTo('table');
 		});
 	});	
-	
+	//입력버튼
 	$('#content a').click(function(){
+		addshow();
 		$('#empForm').show();
 		return false;
 	});
+}
+function addshow(){
+	$('#empForm>h2').text('입력페이지');
+	$('#empForm>form>div').eq(4).hide();
+	$('#empForm>form>div').eq(5).hide();
+	$('#empForm>form>div').eq(6).hide();
+	$('#empForm>form>div').eq(7).hide();
+}
+function editshow(){
+	$('#empForm>h2').text('상세페이지');
+	$('#empForm>form>div').eq(4).show();
+	$('#empForm>form>div').eq(5).show();
+	$('#empForm>form>div').eq(6).show();
+	$('#empForm>form>div').eq(7).show();
 }
 
 </script>
@@ -321,12 +354,29 @@ function empList(){
 				<input type="text" id="job" name="job" />
 			</div>
 			<div>
-				<select name="deptno">
+				<label for="deptno">deptno</label>
+				<select name="deptno" id="deptno">
 					<option value="10">accounting</option>
 					<option value="20">research</option>
 					<option value="30">sales</option>
 					<option value="40">operations</option>
 				</select>
+			</div>
+			<div>
+				<label for="mgr">mgr</label>
+				<input type="text" id="mgr" name="mgr" />
+			</div>
+			<div>
+				<label for="hiredate">hiredate</label>
+				<input type="text" id="hiredate" name="hiredate" />
+			</div>
+			<div>
+				<label for="sal">sal</label>
+				<input type="text" id="sal" name="sal" />
+			</div>
+			<div>
+				<label for="comm">comm</label>
+				<input type="text" id="comm" name="comm" />
 			</div>
 			<div>
 				<button type="submit">입력</button>

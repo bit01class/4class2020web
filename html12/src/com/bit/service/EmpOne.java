@@ -28,7 +28,7 @@ public class EmpOne extends HttpServlet {
 		out.print("		<ename>"+bean.getEname()+"</ename>");
 		out.print("		<job>"+bean.getJob()+"</job>");
 		out.print("		<mgr>"+bean.getMgr()+"</mgr>");
-		out.print("		<hierdate>"+bean.getHiredate()+"</hierdate>");
+		out.print("		<hiredate>"+bean.getHiredate()+"</hiredate>");
 		out.print("		<sal>"+bean.getSal()+"</sal>");
 		out.print("		<comm>"+bean.getComm()+"</comm>");
 		out.print("		<deptno>"+bean.getDeptno()+"</deptno>");
