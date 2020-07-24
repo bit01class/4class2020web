@@ -97,7 +97,7 @@
 		line-height: 50px;
 		text-decoration: none;
 	}
-	#empForm{
+	#empForm,#deptform{
 		position: absolute;
 		top: 0px;
 		left: 0px;
@@ -105,40 +105,50 @@
 		height: 100%;
 		background-color: rgba(100,100,100,0.5);
 	}
-	#empForm>h2{
+	#empForm>h2,#deptform>h2{
 		margin:200px auto 0px auto;
 		padding:50px;
 		width: 500px;
 		background-color: white;
 		text-align: center;
 	}
-	#empForm>form{
+	#empForm>form,#deptform>form{
 		padding:0px;
 		background-color:white;
 		margin:0px auto;
 		width: 600px;
 		
 	}
-	#empForm>form>div{
+	#empForm>form>div,#deptform>form>div{
 		width: 600px;
 		margin-bottom: 30px;
 	}
-	#empForm>form>div>label{
+	#empForm>form>div>label
+	,#deptform>form>div>label
+	{
 		display:inline-block;
 		width: 200px;
 		text-align: right;
 	}
-	#empForm>form>div>input{
+	#empForm>form>div>input
+	,#deptform>form>div>input
+	{
 		width: 300px;
 	}
-	#empForm>form>div:last-child{
+	#empForm>form>div:last-child
+	,#deptform>form>div:last-child
+	{
 		text-align: center;
 	}
-	#empForm>form>div>button{
+	#empForm>form>div>button
+	,#deptform>form>div>button
+	{
 		width: 200px;
 		margin-bottom: 100px;
 	}
-	#empForm>form>div>label+span{
+	#empForm>form>div>label+span
+	,#deptform>form>div>label+span
+	{
 		display:inline-block;
 		text-align:center;
 		width: 300px;
@@ -150,13 +160,30 @@
 var big,menu1,menu2,menu3,menu4;
 var mn3_1,mn3_2;
 $(document).ready(function(){
-	
+	$('#deptform').hide();
 	$(document).on('click','#content>table tr',function(){
 		
-		if($(this).parent().parent().prev().text()=="dept list"){
-			alert('dept');
+		if($(this).parent().parent().prev().text()=='dept list'){
+			console.log($(this).children().first().text());
+			var obj={"idx":$(this).children().first().text()};
+			console.log(obj,$.param(obj));
+			$.getJSON('deptdetail.bit',$.param(obj),function(data){
+				console.log(data);
+				$('#deptform').find('input').eq(0).val(data.dept[0].deptno);
+				$('#deptform').find('input').eq(1).val(data.dept[0].dname);
+				$('#deptform').find('input').eq(2).val(data.dept[0].loc);
+				$('#deptform').show();
+			});
+			/* 
+			$.ajax({
+				  dataType: "json",
+				  url: url,
+				  data: data,
+				  success: success
+			}); 
+			*/
 		}
-		if($(this).parent().parent().prev().text()=="EMP list"){
+		if($(this).parent().parent().prev().text()=='EMP list'){
 			$('.detail').remove();
 			var param='idx='+$(this).children().first().text();
 			console.log(param);
@@ -411,6 +438,27 @@ function editshow(){
 			<div>
 				<label for="comm">comm</label>
 				<input type="text" id="comm" name="comm" />
+			</div>
+			<div>
+				<button type="submit">입력</button>
+				<button type="reset">취소</button>
+			</div>
+		</form>
+	</div>
+	<div id="deptform">
+		<h2>상세페이지</h2>
+		<form>
+			<div>
+				<label for="deptno">deptno</label>
+				<input type="text" id="deptno" name="deptno" /> 
+			</div>
+			<div>
+				<label for="dname">dname</label>
+				<input type="text" id="dname" name="dname" /> 
+			</div>
+			<div>
+				<label for="loc">loc</label>
+				<input type="text" id="loc" name="loc" /> 
 			</div>
 			<div>
 				<button type="submit">입력</button>
