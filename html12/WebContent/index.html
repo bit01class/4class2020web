@@ -145,7 +145,20 @@
 var big,menu1,menu2,menu3,menu4;
 var mn3_1,mn3_2;
 $(document).ready(function(){
-	
+	$('#empForm>form').submit(function(){
+		console.log( $( this ).serialize() );
+		$.post('empadd.bit',$( this ).serialize(),function(){
+			$('#empForm').click();
+		});
+		return false;
+	});
+	$('#empForm').hide().click(function(e){
+		e.stopPropagation();
+		$(this).hide();
+	});
+	$('#empForm>h2,#empForm>form').click(function(e){
+		e.stopPropagation();
+	});
 	menu3=$('#menu>ul>li').eq(2);
 	mn3_1=menu3.find('a').eq(1);
 	mn3_2=menu3.find('a').eq(2);
@@ -169,7 +182,7 @@ $(document).ready(function(){
 			});	
 			
 			$('#content a').click(function(){
-				alert('입력');
+				$('#empForm').show();
 				return false;
 			});
 		});

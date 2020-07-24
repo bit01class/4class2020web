@@ -16,6 +16,14 @@
   	<servlet-name>empListXml</servlet-name>
   	<servlet-class>com.bit.service.EmpList</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>empAdd</servlet-name>
+  	<servlet-class>com.bit.service.EmpAdd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>empAdd</servlet-name>
+  	<url-pattern>/empadd.bit</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>empListXml</servlet-name>
   	<url-pattern>/emplist.bit</url-pattern>
