@@ -64,6 +64,50 @@ public class Emp03Dao {
 			if(conn!=null)conn.close();
 		}
 	}
+	
+	public Emp03Dto selectOne(int sabun) throws SQLException{
+		String sql="select * from emp03 where sabun=?";
+		Emp03Dto bean=new Emp03Dto();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try{
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, sabun);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				bean.setSabun(rs.getInt("sabun"));
+				bean.setName(rs.getString("name"));
+				bean.setNalja(rs.getDate("nalja"));
+				bean.setSub(rs.getString("sub"));
+				bean.setPay(rs.getInt("pay"));
+			}
+			log.info(bean.toString());
+		}finally{
+			if(rs!=null)rs.close();
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		return bean;
+	}
+	
+	public int updateOne(int sabun,String name,String sub,int pay) throws SQLException{
+		String sql="update emp03 set name=?,sub=?,pay=? where sabun=?";
+		int result=0;
+		PreparedStatement pstmt=null;
+		try{
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, sub);
+			pstmt.setInt(3, pay);
+			pstmt.setInt(4, sabun);
+			result=pstmt.executeUpdate();
+			log.info("update:"+(result>0));
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+		return result;
+	}
 }
 
 

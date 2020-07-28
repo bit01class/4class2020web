@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList,com.bit.model.Emp03Dto"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,21 +7,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/frame.css"/>
 <style type="text/css">
-	#content{}
-	#content>h2{
-		text-align: center;
-	}
-	#content>table{
-		width: 500px;
-		margin: 50px  auto;
-	}
-	#content>table>tr{}
-	#content>table,#content>table tr>th,#content>table tr>td{
-		border-collapse: collapse;
-		border:1px solid gray;
-	}
-	#content>table+a{
-		display: block;
+	#content>table~a{
+		display: inline-block;
 		width: 150px;
 		height: 50px;
 		background-image:linear-gradient(darkgray,gray,darkgray);
@@ -32,18 +19,14 @@
 		line-height: 50px;
 		color:white;
 	}
-	#content table tr:first-child~tr{
-		cursor: pointer;
-	}
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('table tr').first().siblings().click(function(){
-			var sabun=$(this).children().first().text();
-			location.href='detail.bit?idx='+sabun;
+		$('table~a').last().click(function(){
+			history.back();
+			return false;
 		});
-		
 	});
 </script>
 </head>
@@ -61,27 +44,29 @@
 			</ul>
 		</div>
 		<div id="content">
-			<h2>EMP List Page</h2>
+<jsp:useBean id="dto" class="com.bit.model.Emp03Dto" scope="request"></jsp:useBean>
+			<h2>상세페이지</h2>
 			<table>
 				<tr>
 					<th>사번</th>
-					<th>제목</th>
-					<th>이름</th>
+					<td><jsp:getProperty property="sabun" name="dto"/> </td>
 				</tr>
-				<%
-ArrayList<Emp03Dto> list=(ArrayList<Emp03Dto>)request.getAttribute("alist");
-//for(int i=0; i<list.size(); i++){
-//	Emp03Dto bean=list.get(i);
-				for(Emp03Dto bean:list){
-				%>
 				<tr>
-					<td><%=bean.getSabun() %></td>
-					<td><%=bean.getSub() %></td>
-					<td><%=bean.getName() %></td>
+					<th>이름</th>
+					<td><jsp:getProperty property="name" name="dto"/> </td>
 				</tr>
-				<%} %>
+				<tr>
+					<th>제목</th>
+					<td><jsp:getProperty property="sub" name="dto"/> </td>
+				</tr>
+				<tr>
+					<th>금액</th>
+					<td><jsp:getProperty property="pay" name="dto"/> </td>
+				</tr>
 			</table>
-			<a href="add.bit">입 력</a>
+			<a href="edit.bit?idx=<%=dto.getSabun()%>">수정</a>
+			<a href="delete.bit?idx=<%=dto.getSabun()%>">삭제</a>
+			<a href="#">뒤로</a>
 		</div>
 		<div id="footer">
 			<address>비트캠프 서울시 서초구 강남대로 459 (서초동, 백암빌딩)</address>
