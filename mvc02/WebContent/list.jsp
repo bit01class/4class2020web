@@ -20,6 +20,18 @@
 		border-collapse: collapse;
 		border:1px solid gray;
 	}
+	#content>table+a{
+		display: block;
+		width: 150px;
+		height: 50px;
+		background-image:linear-gradient(darkgray,gray,darkgray);
+		border-radius:25px;
+		margin: 0px auto 50px auto;
+		text-decoration: none;
+		text-align: center;
+		line-height: 50px;
+		color:white;
+	}
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
@@ -60,6 +72,7 @@ ArrayList<Emp03Dto> list=(ArrayList<Emp03Dto>)request.getAttribute("alist");
 				</tr>
 				<%} %>
 			</table>
+			<a href="add.bit">입 력</a>
 		</div>
 		<div id="footer">
 			<address>비트캠프 서울시 서초구 강남대로 459 (서초동, 백암빌딩)</address>

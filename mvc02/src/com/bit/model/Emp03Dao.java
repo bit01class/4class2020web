@@ -48,6 +48,22 @@ public class Emp03Dao {
 		}
 		return list;
 	}
+	
+	public void insertOne(int sabun,String name,String sub,int pay) throws SQLException{
+		String sql="insert into emp03 values (?,?,?,sysdate,?)";
+		PreparedStatement pstmt = null;
+		try{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, sabun);
+			pstmt.setString(2, name);
+			pstmt.setString(3, sub);
+			pstmt.setInt(4, pay);
+			pstmt.executeUpdate();
+		}finally{
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
+	}
 }
 
 
