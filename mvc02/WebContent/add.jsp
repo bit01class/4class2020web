@@ -11,7 +11,7 @@
 		text-align: center;
 	}
 	#content>form{
-		width: 400px;
+		width: 500px;
 		margin: 50px auto;
 	}
 	#content>form>div{
@@ -23,21 +23,62 @@
 		display: inline-block;
 		border-bottom: 1px solid gray;
 	}
+	#content>form span{
+		display: none;
+	}
+	#err{
+		background-color: red;
+		height: 50px;
+	}
+	#err>span:first-child{
+		background-color: red;
+		float: right;
+		border: 1px solid white;
+		margin: 5px;
+		width: 20px;
+		height: 20px;
+		color: white;
+		text-align: center;
+		line-height: 20px;
+		cursor: pointer;
+	}
+	#err>span:last-child{
+		background-color: red;
+		clear: both;
+	}
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	if(<%=request.getAttribute("err") %>){
+		$('#err').show();
+	}else{
+		$('#err').hide();
+	}
+	$('#err>span').eq(0).click(function(){
+		$('#err').hide();
+	});
 	$('#content form button').eq(2).click(function(){
 		window.history.back();
 	});
 	$('#content form').submit(function(e){
+		$('#err').hide();
 		if($('#sabun').val()==''){
+			$('#err').show();
+			$('#err>span').last().text('사번을 입력하세요');
+			$('#sabun').focus();
 			return false;
 		}else if($('#name').val()==''){
+			$('#err').show();
+			$('#err>span').last().text('이름을 입력하세요');
+			$('#sabun').focus();
 			return false;
 		}else if($('#sub').val()==''){
 			$('#sub').val('제목없음');
 		}else if($('#pay').val()==''){
+			$('#err').show();
+			$('#err>span').last().text('금액을 입력하세요');
+			$('#sabun').focus();
 			return false;
 		}
 	});
@@ -45,6 +86,10 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<div id="err">
+	<span>x</span>
+	<span><%=request.getAttribute("err") %></span>
+</div>
 	<div>
 		<div id="header">
 			<h1>비트교육센터</h1>

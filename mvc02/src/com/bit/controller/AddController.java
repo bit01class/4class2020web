@@ -22,10 +22,24 @@ public class AddController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 입력 기능 수행
 		request.setCharacterEncoding("utf-8");
-		int sabun=Integer.parseInt(request.getParameter("sabun").trim());
+		int sabun=0;
+		try{
+			sabun=Integer.parseInt(request.getParameter("sabun").trim());
+		}catch(NumberFormatException e){
+			request.setAttribute("err", "사번은 숫자로 입력해주세요");
+			doGet(request, response);
+			return;
+		}
 		String name=request.getParameter("name").trim();
 		String sub=request.getParameter("sub").trim();
-		int pay=Integer.parseInt(request.getParameter("pay").trim());
+		int pay=0;
+		try{
+		pay=Integer.parseInt(request.getParameter("pay").trim());
+		}catch(NumberFormatException e){
+			request.setAttribute("err", "금액을 숫자로 입력하세요");
+			doGet(request, response);
+			return;
+		}
 		
 		try {
 			Emp03Dao dao=new Emp03Dao();
