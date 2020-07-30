@@ -26,6 +26,27 @@
 		set.add("WEB");
 		set.add("FRAMEWORK");
 		pageContext.setAttribute("hset", set);
+		java.util.HashMap<String,String> map=null;
+		map=new java.util.HashMap<String,String>();
+		map.put("key1", "val1");
+		map.put("key2", "val2");
+		map.put("key3", "val3");
+		map.put("key3", "val4");
+		pageContext.setAttribute("hmap", map);
+		
+		java.util.ArrayList beans=new java.util.ArrayList();
+		com.bit.model.JavaBean bean=null;
+		bean=new com.bit.model.JavaBean();
+		bean.setSu1(1234);
+		bean.setSu2(3.14);
+		bean.setName("abcd");
+		beans.add(bean);
+		bean=new com.bit.model.JavaBean();
+		bean.setSu1(4321);
+		bean.setSu2(4.13);
+		bean.setName("ABCD");
+		beans.add(bean);
+		pageContext.setAttribute("beans", beans);
 	%>
 	<ol>
 		<c:forEach items="${msgs }" varStatus="status" var="ele">
@@ -37,11 +58,26 @@
 			<li>${alist.get(status.index) } - ${ele }</li>
 		</c:forEach>
 	</ol>
-	<ol>
+	<ul>
 		<c:forEach items="${hset }" var="ele">
 			<li>${ele }</li>
 		</c:forEach>
-	</ol>
+	</ul>
+	<ul>
+		<c:forEach items="${hmap }" var="ele">
+			<li>${ele.key }:${ele.value }</li>
+		</c:forEach>
+	</ul>
+	<dl>
+		<c:forEach items="${beans }" var="dto">
+			<dt>su1</dt>
+			<dd>${dto.su1 }</dd>
+			<dt>su2</dt>
+			<dd>${dto.su2 }</dd>
+			<dt>name</dt>
+			<dd>${dto.name }</dd>
+		</c:forEach>
+	</dl>
 </body>
 </html>
 
