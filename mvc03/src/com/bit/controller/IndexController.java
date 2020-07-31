@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 public class IndexController extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		//http://localhost:8080/mvc03/index.bit
+		//http://localhost:8080/mvc03/index.jsp
+		request.getRequestDispatcher("./index.jsp").forward(request, response);
 	}
 
 }
