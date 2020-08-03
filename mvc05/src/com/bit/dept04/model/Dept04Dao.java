@@ -74,6 +74,9 @@ public class Dept04Dao {
 	public List<Dept04Dto> selectAll(){
 		List<Dept04Dto> list=new ArrayList<Dept04Dto>();
 		try{
+			conn.setAutoCommit(false);
+//			pstmt=conn.prepareStatement("insert~~~~~");
+//			pstmt.executeUpdate();
 			pstmt=conn.prepareStatement("select * from dept04");
 			rs=pstmt.executeQuery();
 			while(rs.next()){
@@ -85,8 +88,14 @@ public class Dept04Dao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 		}finally{
 			try {
+				conn.setAutoCommit(true);
 				if(rs!=null)rs.close();
 				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
