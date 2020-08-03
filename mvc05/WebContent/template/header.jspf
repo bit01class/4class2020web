@@ -1,10 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div>
-	<img alt="" src="img/logo.png"/>
+	<img alt="logo" src="img/logo.png"/>
 	<ul>
 		<li><a href="index.bit">HOME</a></li>
 		<li><a href="upload.bit">UPLOAD</a></li>
-		<li><a href="login.bit">LOGIN</a></li>
+		<li><c:if test="${login eq null }">
+			<a href="login.bit">LOGIN</a>
+		</c:if><c:if test="${login ne null }">
+			<a href="logout.bit">LOGOUT</a>
+		</c:if></li>
+		<li>${bean.name }</li>
 	</ul>
 </div>
+
+
+
+
+
+

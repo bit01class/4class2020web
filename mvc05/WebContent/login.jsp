@@ -8,19 +8,20 @@
 <link rel="stylesheet" type="text/css" href="css/header.css"/>
 </head>
 <body>
-<%@ include file="template/header.jspf" %>
-	<h1>파일업로드</h1>
-	<form action="upload.bit" method="post" enctype="multipart/form-data">
+	<%@ include file="template/header.jspf" %>
+	<h1>login page</h1>
+	<form method="post">
 		<div>
 			<label for="sabun">sabun</label>
-			<input type="text" name="sabun" id="sabun" />
+			<input type="text" name="sabun" id="sabun"/>
 		</div>
 		<div>
-			<label for="file1">file1</label>
-			<input type="file" name="file1" id="file1" />
+			<label for="name">name</label>
+			<input type="text" name="name" id="name"/>
 		</div>
 		<div>
-			<button type="submit">업로드</button>
+			<input type="submit" value="로그인"/>
+			<input type="reset" value="취 소"/>
 		</div>
 	</form>
 </body>

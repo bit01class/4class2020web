@@ -9,7 +9,7 @@
 </head>
 <body>
 <%@ include file="template/header.jspf" %>
-	<h1>업로드완료</h1>
-	<a href="download.bit?file=${rename }&org=${origin }">${origin }</a>
+<h2>로그인 성공</h2>
+<p>${login.name }님 로그인 되었습니다</p>
 </body>
 </html>
