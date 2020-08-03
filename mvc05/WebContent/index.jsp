@@ -26,8 +26,10 @@
 		display: inline-block;
 	}
 </style>
+<link rel="stylesheet" type="text/css" href="css/header.css"/>
 </head>
 <body>
+<%@ include file="template/header.jspf" %>
 	<h1>리스트페이지</h1>
 	<dl>
 		<dt>deptno</dt>

@@ -1,0 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<div>
+	<img alt="" src="img/logo.png"/>
+	<ul>
+		<li><a href="index.bit">HOME</a></li>
+		<li><a href="upload.bit">UPLOAD</a></li>
+		<li><a href="login.bit">LOGIN</a></li>
+	</ul>
+</div>

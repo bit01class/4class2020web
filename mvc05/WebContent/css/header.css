@@ -1,0 +1,27 @@
+body>div:first-child{
+		border-bottom-color: gray;
+		border-bottom-style: solid;
+		border-bottom-width: 3px;
+	}
+body>div:first-child>img{}
+body>div:first-child>ul{
+	display:inline-block;
+	width:336px;
+	list-style: none;
+	overflow: hidden;
+}
+body>div:first-child>ul>li{
+	width: 100px;
+	float: left;
+	margin: 0px 5px;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+}
+body>div:first-child>ul>li>a{
+	display:block;
+	height: 30px;
+	text-decoration: none;
+	text-align: center;
+	color: gray;
+	line-height: 30px;
+}

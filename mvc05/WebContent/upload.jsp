@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="template/header.jspf" %>
 	<h1>파일업로드</h1>
 	<form action="upload.bit" method="post" enctype="multipart/form-data">
 		<div>

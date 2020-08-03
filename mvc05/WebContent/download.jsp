@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="template/header.jspf" %>
 	<h1>업로드완료</h1>
-	<a href="up/${rename }">${origin }</a>
+	<a href="download.bit?file=${rename }&org=${origin }">${origin }</a>
 </body>
 </html>
