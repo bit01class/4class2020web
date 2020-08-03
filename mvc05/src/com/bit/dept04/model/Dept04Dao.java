@@ -39,16 +39,18 @@ public class Dept04Dao {
 		*/
 		try {
 			InitialContext init = new InitialContext();
-			javax.naming.Context context = null;
-			context=(Context) init.lookup("java:/comp/env");
-			System.out.println(context);
+			
 			javax.sql.DataSource dataSource=null;
-			dataSource=(DataSource) context.lookup("jdbc/oracle");
+			dataSource=(DataSource) init.lookup("java:/comp/env/jdbc/oracle");
 			
+//			InitialContext init = new InitialContext();
+//			javax.naming.Context context = null;
+//			context=(Context) init.lookup("java:/comp/env");
+//			
+//			javax.sql.DataSource dataSource=null;
+//			dataSource=(DataSource) context.lookup("jdbc/oracle");
 			
-			System.out.println(dataSource);
 			conn=dataSource.getConnection();
-			System.out.println(conn);
 		} catch (NamingException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
