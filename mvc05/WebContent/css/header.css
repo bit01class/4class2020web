@@ -25,6 +25,7 @@ body>div:first-child>ul>li>a{
 	color: gray;
 	line-height: 30px;
 }
-body>div:first-child>span{
+body>div:first-child span{
 	float: right;
+	margin-right: 100px;
 }

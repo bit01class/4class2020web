@@ -9,21 +9,20 @@
 <style type="text/css">
 	dl{
 		border:1px solid gray;
-		margin: 0px;
-		padding: 0px;
+		width: 800px;
+		margin: 0px auto;
+	}
+	dl>dt,dl>dd,dl>dd>div{
+		display: inline-block;
 	}
 	dl>dt{
 		width: 100px;
-		display: inline-block;
-		float: left;
 	}
 	dl>dd{
-		width: 300px;
-		display: inline-block;
+		width: 600px;
 	}
 	dl>dd>div{
-		width: 140px;
-		display: inline-block;
+		width: 290px;
 	}
 </style>
 <link rel="stylesheet" type="text/css" href="css/header.css"/>
@@ -37,15 +36,14 @@
 			<div>dname</div>
 			<div>loc</div>
 		</dd>
-	</dl>
-	<c:forEach items="${list }" var="bean">
-	<dl>
-		<dt>${bean.deptno}</dt>
+		<c:forEach items="${list }" var="bean">
+		<dt><a href="detail.bit?idx=${bean.deptno}">${bean.deptno}</a></dt>
 		<dd>
 			<div>${bean.dname }</div>
 			<div>${bean.loc }</div>
 		</dd>
+		</c:forEach>
 	</dl>
-	</c:forEach>
+	<a href="add.bit">입력</a>
 </body>
 </html>
